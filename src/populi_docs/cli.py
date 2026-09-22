@@ -56,9 +56,7 @@ def cmd_check(root: Path) -> int:
     if live == local:
         print(f"up to date: {live}")
         return 0
-    print(
-        f"newer docs live: {live} (this copy: {local or 'none'}); run populi-docs sync"
-    )
+    print(f"newer docs live: {live} (this copy: {local or 'none'})")
     return 1
 
 

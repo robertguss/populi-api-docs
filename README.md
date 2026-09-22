@@ -65,6 +65,24 @@ GitHub disables scheduled workflows after 60 days without repository activity,
 which can happen here when Populi publishes nothing for two months. The skill
 re-enables the workflow before it dispatches it.
 
+## The populi-api skill
+
+`skill/populi-api/` is a Claude Code skill: agents reach for it whenever work
+touches the Populi API. It freshens the copy once per session with
+`scripts/freshen.sh` (pull; compare stamps; dispatch the workflow and pull again
+if Populi is ahead; skip all of it if a check succeeded in the last 12 hours),
+then looks things up in the order `endpoints.md`, model page, overview,
+webhooks, `catalog.json`. The dispatch path needs `gh`, logged in.
+
+Install it once by linking it into your skills:
+
+```sh
+ln -s "$PWD/skill/populi-api" ~/.claude/skills/populi-api
+```
+
+The script assumes the checkout is at `~/Projects/wts-dops/populi-api-docs`; set
+`POPULI_DOCS_ROOT` if it lives elsewhere (it clones there if missing).
+
 ## How it works
 
 The site is a static Slate site with one page per model. Every page has the same
