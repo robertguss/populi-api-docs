@@ -1,0 +1,262 @@
+<html><body><div class="content">
+<h1 id="academicyear">AcademicYear</h1><h2 id="the-academicyear-object">The AcademicYear object</h2>
+<blockquote>
+<p>The AcademicYear object looks like this in JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"academic_year"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"start_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2009</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"end_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2010</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"num_academic_terms"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Yes</td>
+<td>int</td>
+</tr>
+<tr>
+<td>start_year</td>
+<td>Yes</td>
+<td>int</td>
+</tr>
+<tr>
+<td>end_year</td>
+<td>Yes</td>
+<td>int</td>
+</tr>
+<tr>
+<td>num_academic_terms</td>
+<td>No</td>
+<td>int</td>
+</tr>
+<tr>
+<td>sandbox</td>
+<td>No</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>api_version</td>
+<td>No</td>
+<td>--</td>
+</tr>
+</tbody></table>
+<h2 id="index">index</h2>
+<blockquote>
+<p>Example code to call this method:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yourschool.populiweb.com/api2/academicyears"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer YOUR_POPULI_API_KEY"</span> <span class="se">\ </span>
+<span class="nt">-X</span> GET
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
+ <span class="s1">'https://yourschool.populiweb.com/api2/academicyears'</span><span class="p">,</span>
+ <span class="ss">headers: </span><span class="p">{</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_POPULI_API_KEY'</span>
+ <span class="p">},</span>
+<span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
+ <span class="s">'https://yourschool.populiweb.com/api2/academicyears'</span><span class="p">,</span>
+ <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer YOUR_POPULI_API_KEY'</span>
+ <span class="p">},</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">RestSharp</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">();</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="k">new</span> <span class="nf">Uri</span><span class="p">(</span><span class="s">"https://yourschool.populiweb.com/api2/academicyears"</span><span class="p">),</span> <span class="n">Method</span><span class="p">.</span><span class="n">Get</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer YOUR_POPULI_API_KEY"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response_object</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">response_object</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://yourschool.populiweb.com/api2/academicyears'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Authorization: Bearer YOUR_POPULI_API_KEY'</span><span class="p">]);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_CUSTOMREQUEST</span><span class="p">,</span> <span class="s1">'GET'</span><span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$response_decoded</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response_decoded</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"results_per_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"academic_year"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"start_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2009</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"end_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2010</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"num_academic_terms"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retrieves all AcademicYear objects.</p>
+<h3 id="http-request">HTTP Request</h3>
+<p><code>GET /academicyears</code></p>
+<h3 id="parameters">Parameters</h3>
+<p>None</p>
+<h3 id="permissions">Permissions</h3>
+<p>One of the following roles is required to call this method:</p>
+<ul>
+<li>Academic Admin</li>
+<li>Registrar</li>
+</ul>
+<h2 id="show">show</h2>
+<blockquote>
+<p>Example code to call this method:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yourschool.populiweb.com/api2/academicyears/(academicyear)"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer YOUR_POPULI_API_KEY"</span> <span class="se">\ </span>
+<span class="nt">-X</span> GET
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
+ <span class="s1">'https://yourschool.populiweb.com/api2/academicyears/(academicyear)'</span><span class="p">,</span>
+ <span class="ss">headers: </span><span class="p">{</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_POPULI_API_KEY'</span>
+ <span class="p">},</span>
+<span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
+ <span class="s">'https://yourschool.populiweb.com/api2/academicyears/(academicyear)'</span><span class="p">,</span>
+ <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer YOUR_POPULI_API_KEY'</span>
+ <span class="p">},</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">RestSharp</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">();</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="k">new</span> <span class="nf">Uri</span><span class="p">(</span><span class="s">"https://yourschool.populiweb.com/api2/academicyears/(academicyear)"</span><span class="p">),</span> <span class="n">Method</span><span class="p">.</span><span class="n">Get</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer YOUR_POPULI_API_KEY"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response_object</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">response_object</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://yourschool.populiweb.com/api2/academicyears/(academicyear)'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Authorization: Bearer YOUR_POPULI_API_KEY'</span><span class="p">]);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_CUSTOMREQUEST</span><span class="p">,</span> <span class="s1">'GET'</span><span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$response_decoded</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response_decoded</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"academic_year"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"start_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2009</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"end_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2010</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retrieves a specific AcademicYear object.</p>
+<h3 id="http-request-2">HTTP Request</h3>
+<p><code>GET /academicyears/(academicyear)</code></p>
+<h3 id="parameters-2">Parameters</h3>
+<p>No additional parameters are needed beyond the ID of the object being requested that appears in the URL.</p>
+<h3 id="expandable-properties">Expandable Properties</h3>
+<ul>
+<li>academic_terms</li>
+<li>academic_super_terms</li>
+</ul>
+<h3 id="permissions-2">Permissions</h3>
+<p>One of the following roles is required to call this method:</p>
+<ul>
+<li>Academic Admin</li>
+<li>Registrar</li>
+</ul>
+<h2 id="current">current</h2>
+<blockquote>
+<p>Example code to call this method:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yourschool.populiweb.com/api2/academicyears/current"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer YOUR_POPULI_API_KEY"</span> <span class="se">\ </span>
+<span class="nt">-X</span> GET
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
+ <span class="s1">'https://yourschool.populiweb.com/api2/academicyears/current'</span><span class="p">,</span>
+ <span class="ss">headers: </span><span class="p">{</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_POPULI_API_KEY'</span>
+ <span class="p">},</span>
+<span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
+ <span class="s">'https://yourschool.populiweb.com/api2/academicyears/current'</span><span class="p">,</span>
+ <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer YOUR_POPULI_API_KEY'</span>
+ <span class="p">},</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">RestSharp</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">();</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="k">new</span> <span class="nf">Uri</span><span class="p">(</span><span class="s">"https://yourschool.populiweb.com/api2/academicyears/current"</span><span class="p">),</span> <span class="n">Method</span><span class="p">.</span><span class="n">Get</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer YOUR_POPULI_API_KEY"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response_object</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">response_object</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://yourschool.populiweb.com/api2/academicyears/current'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Authorization: Bearer YOUR_POPULI_API_KEY'</span><span class="p">]);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_CUSTOMREQUEST</span><span class="p">,</span> <span class="s1">'GET'</span><span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$response_decoded</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response_decoded</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"academic_year"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"start_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2009</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"end_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2010</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id="http-request-3">HTTP Request</h3>
+<p><code>GET /academicyears/current</code></p>
+<h3 id="parameters-3">Parameters</h3>
+<p>None</p>
+<h3 id="permissions-3">Permissions</h3>
+<p>One of the following roles is required to call this method:</p>
+<ul>
+<li>Academic Admin</li>
+<li>Registrar</li>
+</ul>
+</div></body></html>

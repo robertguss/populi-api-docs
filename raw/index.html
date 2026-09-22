@@ -1,0 +1,1513 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Populi API version 2.x"
+        >
+    <title>Populi API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-3e479682.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+    <script src="javascripts/all_nosearch-59978e3f.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;csharp&quot;,&quot;php&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-22fd9763.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="csharp">csharp</a>
+              <a href="#" data-language-name="php">php</a>
+        </div>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#request-and-response-format" class="toc-h1 toc-link" data-title="Request and Response Format">Request and Response Format</a>
+          </li>
+          <li>
+            <a href="#objects" class="toc-h1 toc-link" data-title="Objects">Objects</a>
+          </li>
+          <li>
+            <a href="#expandable-objects" class="toc-h1 toc-link" data-title="Expandable Objects">Expandable Objects</a>
+          </li>
+          <li>
+            <a href="#lists-and-paging" class="toc-h1 toc-link" data-title="Lists and Paging">Lists and Paging</a>
+          </li>
+          <li>
+            <a href="#filter-conditions-for-reports" class="toc-h1 toc-link" data-title="Filter conditions for reports">Filter conditions for reports</a>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+          <li>
+            <a href="#rate-limits" class="toc-h1 toc-link" data-title="Rate Limits">Rate Limits</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#handling-429-response-codes-by-exponentially-backing-off" class="toc-h2 toc-link" data-title="Handling 429 response codes by exponentially backing off">Handling 429 response codes by exponentially backing off</a>
+                  </li>
+                  <li>
+                    <a href="#best-practices-to-avoid-rate-limits" class="toc-h2 toc-link" data-title="Best practices to avoid rate limits">Best practices to avoid rate limits</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#example-code" class="toc-h1 toc-link" data-title="Example Code">Example Code</a>
+          </li>
+      </ul>
+      <div class="global-nav">
+        <ul class="toc-list-h1">
+          <li>
+            <a href="index.html" class="toc-h1 toc-link" data-title="Home">Home</a>
+          </li>
+            <li>
+              <a href="models/academicterms.html" class="toc-h1 toc-link" data-title="AcademicTerm">
+                AcademicTerm
+              </a>
+            </li>
+            <li>
+              <a href="models/academictermpersonsettings.html" class="toc-h1 toc-link" data-title="AcademicTermPersonSettings">
+                AcademicTermPersonSettings
+              </a>
+            </li>
+            <li>
+              <a href="models/academictermtypes.html" class="toc-h1 toc-link" data-title="AcademicTermType">
+                AcademicTermType
+              </a>
+            </li>
+            <li>
+              <a href="models/academicyears.html" class="toc-h1 toc-link" data-title="AcademicYear">
+                AcademicYear
+              </a>
+            </li>
+            <li>
+              <a href="models/accounts.html" class="toc-h1 toc-link" data-title="Account">
+                Account
+              </a>
+            </li>
+            <li>
+              <a href="models/addresses.html" class="toc-h1 toc-link" data-title="Address">
+                Address
+              </a>
+            </li>
+            <li>
+              <a href="models/advisees.html" class="toc-h1 toc-link" data-title="Advisee">
+                Advisee
+              </a>
+            </li>
+            <li>
+              <a href="models/aidapplications.html" class="toc-h1 toc-link" data-title="AidApplication">
+                AidApplication
+              </a>
+            </li>
+            <li>
+              <a href="models/aidauthorizations.html" class="toc-h1 toc-link" data-title="AidAuthorization">
+                AidAuthorization
+              </a>
+            </li>
+            <li>
+              <a href="models/aidawards.html" class="toc-h1 toc-link" data-title="AidAward">
+                AidAward
+              </a>
+            </li>
+            <li>
+              <a href="models/aidclassifications.html" class="toc-h1 toc-link" data-title="AidClassification">
+                AidClassification
+              </a>
+            </li>
+            <li>
+              <a href="models/aiddisbursements.html" class="toc-h1 toc-link" data-title="AidDisbursement">
+                AidDisbursement
+              </a>
+            </li>
+            <li>
+              <a href="models/aiddisbursementbatches.html" class="toc-h1 toc-link" data-title="AidDisbursementBatch">
+                AidDisbursementBatch
+              </a>
+            </li>
+            <li>
+              <a href="models/aidstudentauthorizations.html" class="toc-h1 toc-link" data-title="AidStudentAuthorization">
+                AidStudentAuthorization
+              </a>
+            </li>
+            <li>
+              <a href="models/aidtypes.html" class="toc-h1 toc-link" data-title="AidType">
+                AidType
+              </a>
+            </li>
+            <li>
+              <a href="models/aidyears.html" class="toc-h1 toc-link" data-title="AidYear">
+                AidYear
+              </a>
+            </li>
+            <li>
+              <a href="models/aidyearschedules.html" class="toc-h1 toc-link" data-title="AidYearSchedule">
+                AidYearSchedule
+              </a>
+            </li>
+            <li>
+              <a href="models/appeals.html" class="toc-h1 toc-link" data-title="Appeal">
+                Appeal
+              </a>
+            </li>
+            <li>
+              <a href="models/appealmedia.html" class="toc-h1 toc-link" data-title="AppealMedium">
+                AppealMedium
+              </a>
+            </li>
+            <li>
+              <a href="models/applications.html" class="toc-h1 toc-link" data-title="Application">
+                Application
+              </a>
+            </li>
+            <li>
+              <a href="models/applicationtemplates.html" class="toc-h1 toc-link" data-title="ApplicationTemplate">
+                ApplicationTemplate
+              </a>
+            </li>
+            <li>
+              <a href="models/courseassignments.html" class="toc-h1 toc-link" data-title="Assignment">
+                Assignment
+              </a>
+            </li>
+            <li>
+              <a href="models/assignmentgrades.html" class="toc-h1 toc-link" data-title="AssignmentGrade">
+                AssignmentGrade
+              </a>
+            </li>
+            <li>
+              <a href="models/assignmentgroups.html" class="toc-h1 toc-link" data-title="AssignmentGroup">
+                AssignmentGroup
+              </a>
+            </li>
+            <li>
+              <a href="models/assignmentsubmissions.html" class="toc-h1 toc-link" data-title="AssignmentSubmission">
+                AssignmentSubmission
+              </a>
+            </li>
+            <li>
+              <a href="models/assignmenttestinstance.html" class="toc-h1 toc-link" data-title="AssignmentTestInstance">
+                AssignmentTestInstance
+              </a>
+            </li>
+            <li>
+              <a href="models/triggers.html" class="toc-h1 toc-link" data-title="Automation">
+                Automation
+              </a>
+            </li>
+            <li>
+              <a href="models/triggerhandlers.html" class="toc-h1 toc-link" data-title="AutomationHandler">
+                AutomationHandler
+              </a>
+            </li>
+            <li>
+              <a href="models/customerbackups.html" class="toc-h1 toc-link" data-title="Backup">
+                Backup
+              </a>
+            </li>
+            <li>
+              <a href="models/categories.html" class="toc-h1 toc-link" data-title="BookstoreBookstoreItemCategory">
+                BookstoreBookstoreItemCategory
+              </a>
+            </li>
+            <li>
+              <a href="models/bookstorediscountcodes.html" class="toc-h1 toc-link" data-title="BookstoreDiscountCode">
+                BookstoreDiscountCode
+              </a>
+            </li>
+            <li>
+              <a href="models/items.html" class="toc-h1 toc-link" data-title="BookstoreItem">
+                BookstoreItem
+              </a>
+            </li>
+            <li>
+              <a href="models/orders.html" class="toc-h1 toc-link" data-title="BookstoreOrder">
+                BookstoreOrder
+              </a>
+            </li>
+            <li>
+              <a href="models/buildings.html" class="toc-h1 toc-link" data-title="Building">
+                Building
+              </a>
+            </li>
+            <li>
+              <a href="models/coacategories.html" class="toc-h1 toc-link" data-title="COACategory">
+                COACategory
+              </a>
+            </li>
+            <li>
+              <a href="models/calendarevents.html" class="toc-h1 toc-link" data-title="CalendarEvent">
+                CalendarEvent
+              </a>
+            </li>
+            <li>
+              <a href="models/campaigns.html" class="toc-h1 toc-link" data-title="Campaign">
+                Campaign
+              </a>
+            </li>
+            <li>
+              <a href="models/campuses.html" class="toc-h1 toc-link" data-title="Campus">
+                Campus
+              </a>
+            </li>
+            <li>
+              <a href="models/canadiandonationreceipts.html" class="toc-h1 toc-link" data-title="CanadianDonationReceipt">
+                CanadianDonationReceipt
+              </a>
+            </li>
+            <li>
+              <a href="models/catalogcourses.html" class="toc-h1 toc-link" data-title="CatalogCourse">
+                CatalogCourse
+              </a>
+            </li>
+            <li>
+              <a href="models/account.html" class="toc-h1 toc-link" data-title="ChangeLog">
+                ChangeLog
+              </a>
+            </li>
+            <li>
+              <a href="models/checks.html" class="toc-h1 toc-link" data-title="Check">
+                Check
+              </a>
+            </li>
+            <li>
+              <a href="models/personcitizenships.html" class="toc-h1 toc-link" data-title="Citizenship">
+                Citizenship
+              </a>
+            </li>
+            <li>
+              <a href="models/communicationplans.html" class="toc-h1 toc-link" data-title="CommunicationPlan">
+                CommunicationPlan
+              </a>
+            </li>
+            <li>
+              <a href="models/communicationplaninstances.html" class="toc-h1 toc-link" data-title="CommunicationPlanInstance">
+                CommunicationPlanInstance
+              </a>
+            </li>
+            <li>
+              <a href="models/consequences.html" class="toc-h1 toc-link" data-title="Consequence">
+                Consequence
+              </a>
+            </li>
+            <li>
+              <a href="models/countries.html" class="toc-h1 toc-link" data-title="Country">
+                Country
+              </a>
+            </li>
+            <li>
+              <a href="models/attendancereports.html" class="toc-h1 toc-link" data-title="CourseAttendance">
+                CourseAttendance
+              </a>
+            </li>
+            <li>
+              <a href="models/coursedeliverymethods.html" class="toc-h1 toc-link" data-title="CourseDeliveryMethod">
+                CourseDeliveryMethod
+              </a>
+            </li>
+            <li>
+              <a href="models/courseevaluations.html" class="toc-h1 toc-link" data-title="CourseEvaluation">
+                CourseEvaluation
+              </a>
+            </li>
+            <li>
+              <a href="models/coursegroups.html" class="toc-h1 toc-link" data-title="CourseGroup">
+                CourseGroup
+              </a>
+            </li>
+            <li>
+              <a href="models/coursegrouprequirements.html" class="toc-h1 toc-link" data-title="CourseGroupRequirement">
+                CourseGroupRequirement
+              </a>
+            </li>
+            <li>
+              <a href="models/courselessons.html" class="toc-h1 toc-link" data-title="CourseLesson">
+                CourseLesson
+              </a>
+            </li>
+            <li>
+              <a href="models/coursemeetings.html" class="toc-h1 toc-link" data-title="CourseMeeting">
+                CourseMeeting
+              </a>
+            </li>
+            <li>
+              <a href="models/courseofferings.html" class="toc-h1 toc-link" data-title="CourseOffering">
+                CourseOffering
+              </a>
+            </li>
+            <li>
+              <a href="models/credits.html" class="toc-h1 toc-link" data-title="Credit">
+                Credit
+              </a>
+            </li>
+            <li>
+              <a href="models/custominfodata.html" class="toc-h1 toc-link" data-title="CustomInfoData">
+                CustomInfoData
+              </a>
+            </li>
+            <li>
+              <a href="models/custominfofield.html" class="toc-h1 toc-link" data-title="CustomInfoField">
+                CustomInfoField
+              </a>
+            </li>
+            <li>
+              <a href="models/dataslicerreports.html" class="toc-h1 toc-link" data-title="DataSlicerReport">
+                DataSlicerReport
+              </a>
+            </li>
+            <li>
+              <a href="models/declinedreasons.html" class="toc-h1 toc-link" data-title="DeclinedReason">
+                DeclinedReason
+              </a>
+            </li>
+            <li>
+              <a href="models/degrees.html" class="toc-h1 toc-link" data-title="Degree">
+                Degree
+              </a>
+            </li>
+            <li>
+              <a href="models/degreelevels.html" class="toc-h1 toc-link" data-title="DegreeLevel">
+                DegreeLevel
+              </a>
+            </li>
+            <li>
+              <a href="models/departments.html" class="toc-h1 toc-link" data-title="Department">
+                Department
+              </a>
+            </li>
+            <li>
+              <a href="models/discipline.html" class="toc-h1 toc-link" data-title="Discipline">
+                Discipline
+              </a>
+            </li>
+            <li>
+              <a href="models/disciplinetypes.html" class="toc-h1 toc-link" data-title="DisciplineType">
+                DisciplineType
+              </a>
+            </li>
+            <li>
+              <a href="models/donatepages.html" class="toc-h1 toc-link" data-title="DonatePage">
+                DonatePage
+              </a>
+            </li>
+            <li>
+              <a href="models/donations.html" class="toc-h1 toc-link" data-title="Donation">
+                Donation
+              </a>
+            </li>
+            <li>
+              <a href="models/donors.html" class="toc-h1 toc-link" data-title="Donor">
+                Donor
+              </a>
+            </li>
+            <li>
+              <a href="models/educationlevels.html" class="toc-h1 toc-link" data-title="EducationLevel">
+                EducationLevel
+              </a>
+            </li>
+            <li>
+              <a href="models/emailaddresses.html" class="toc-h1 toc-link" data-title="EmailAddress">
+                EmailAddress
+              </a>
+            </li>
+            <li>
+              <a href="models/emailtemplates.html" class="toc-h1 toc-link" data-title="EmailTemplate">
+                EmailTemplate
+              </a>
+            </li>
+            <li>
+              <a href="models/coursestudents.html" class="toc-h1 toc-link" data-title="Enrollment">
+                Enrollment
+              </a>
+            </li>
+            <li>
+              <a href="models/enrollmentagreements.html" class="toc-h1 toc-link" data-title="EnrollmentAgreement">
+                EnrollmentAgreement
+              </a>
+            </li>
+            <li>
+              <a href="models/exitreasons.html" class="toc-h1 toc-link" data-title="ExitReason">
+                ExitReason
+              </a>
+            </li>
+            <li>
+              <a href="models/fees.html" class="toc-h1 toc-link" data-title="Fee">
+                Fee
+              </a>
+            </li>
+            <li>
+              <a href="models/files.html" class="toc-h1 toc-link" data-title="File">
+                File
+              </a>
+            </li>
+            <li>
+              <a href="models/financialtransactions.html" class="toc-h1 toc-link" data-title="FinancialTransaction">
+                FinancialTransaction
+              </a>
+            </li>
+            <li>
+              <a href="models/forms.html" class="toc-h1 toc-link" data-title="Form">
+                Form
+              </a>
+            </li>
+            <li>
+              <a href="models/formresponses.html" class="toc-h1 toc-link" data-title="FormResponse">
+                FormResponse
+              </a>
+            </li>
+            <li>
+              <a href="models/funds.html" class="toc-h1 toc-link" data-title="Fund">
+                Fund
+              </a>
+            </li>
+            <li>
+              <a href="models/gradescales.html" class="toc-h1 toc-link" data-title="GradeScale">
+                GradeScale
+              </a>
+            </li>
+            <li>
+              <a href="models/groups.html" class="toc-h1 toc-link" data-title="Group">
+                Group
+              </a>
+            </li>
+            <li>
+              <a href="models/honors.html" class="toc-h1 toc-link" data-title="Honor">
+                Honor
+              </a>
+            </li>
+            <li>
+              <a href="models/idcardtemplates.html" class="toc-h1 toc-link" data-title="IDCardTemplate">
+                IDCardTemplate
+              </a>
+            </li>
+            <li>
+              <a href="models/isirs.html" class="toc-h1 toc-link" data-title="ISIR">
+                ISIR
+              </a>
+            </li>
+            <li>
+              <a href="models/inquiries.html" class="toc-h1 toc-link" data-title="Inquiry">
+                Inquiry
+              </a>
+            </li>
+            <li>
+              <a href="models/inventorybatches.html" class="toc-h1 toc-link" data-title="InventoryBatch">
+                InventoryBatch
+              </a>
+            </li>
+            <li>
+              <a href="models/invoices.html" class="toc-h1 toc-link" data-title="Invoice">
+                Invoice
+              </a>
+            </li>
+            <li>
+              <a href="models/leads.html" class="toc-h1 toc-link" data-title="Lead">
+                Lead
+              </a>
+            </li>
+            <li>
+              <a href="models/leadsources.html" class="toc-h1 toc-link" data-title="LeadSource">
+                LeadSource
+              </a>
+            </li>
+            <li>
+              <a href="models/ledgers.html" class="toc-h1 toc-link" data-title="LedgerEntry">
+                LedgerEntry
+              </a>
+            </li>
+            <li>
+              <a href="models/lessonpages.html" class="toc-h1 toc-link" data-title="LessonPage">
+                LessonPage
+              </a>
+            </li>
+            <li>
+              <a href="models/letters.html" class="toc-h1 toc-link" data-title="Letter">
+                Letter
+              </a>
+            </li>
+            <li>
+              <a href="models/lettertemplates.html" class="toc-h1 toc-link" data-title="LetterTemplate">
+                LetterTemplate
+              </a>
+            </li>
+            <li>
+              <a href="models/libraryresources.html" class="toc-h1 toc-link" data-title="LibraryResource">
+                LibraryResource
+              </a>
+            </li>
+            <li>
+              <a href="models/links.html" class="toc-h1 toc-link" data-title="Link">
+                Link
+              </a>
+            </li>
+            <li>
+              <a href="models/localizations.html" class="toc-h1 toc-link" data-title="Localization">
+                Localization
+              </a>
+            </li>
+            <li>
+              <a href="models/lockareas.html" class="toc-h1 toc-link" data-title="LockArea">
+                LockArea
+              </a>
+            </li>
+            <li>
+              <a href="models/locks.html" class="toc-h1 toc-link" data-title="LockStudent">
+                LockStudent
+              </a>
+            </li>
+            <li>
+              <a href="models/locktypes.html" class="toc-h1 toc-link" data-title="LockType">
+                LockType
+              </a>
+            </li>
+            <li>
+              <a href="models/ltitools.html" class="toc-h1 toc-link" data-title="LtiTool">
+                LtiTool
+              </a>
+            </li>
+            <li>
+              <a href="models/mailinglists.html" class="toc-h1 toc-link" data-title="MailingList">
+                MailingList
+              </a>
+            </li>
+            <li>
+              <a href="models/mealplans.html" class="toc-h1 toc-link" data-title="MealPlan">
+                MealPlan
+              </a>
+            </li>
+            <li>
+              <a href="models/mealplanstudents.html" class="toc-h1 toc-link" data-title="MealPlanStudent">
+                MealPlanStudent
+              </a>
+            </li>
+            <li>
+              <a href="models/courseschedules.html" class="toc-h1 toc-link" data-title="MeetingTime">
+                MeetingTime
+              </a>
+            </li>
+            <li>
+              <a href="models/news.html" class="toc-h1 toc-link" data-title="News">
+                News
+              </a>
+            </li>
+            <li>
+              <a href="models/notes.html" class="toc-h1 toc-link" data-title="Note">
+                Note
+              </a>
+            </li>
+            <li>
+              <a href="models/occupations.html" class="toc-h1 toc-link" data-title="Occupation">
+                Occupation
+              </a>
+            </li>
+            <li>
+              <a href="models/onlinepayments.html" class="toc-h1 toc-link" data-title="OnlinePayment">
+                OnlinePayment
+              </a>
+            </li>
+            <li>
+              <a href="models/contactorganizations.html" class="toc-h1 toc-link" data-title="Organization">
+                Organization
+              </a>
+            </li>
+            <li>
+              <a href="models/organizationdomains.html" class="toc-h1 toc-link" data-title="OrganizationDomain">
+                OrganizationDomain
+              </a>
+            </li>
+            <li>
+              <a href="models/contactorganizationmembers.html" class="toc-h1 toc-link" data-title="OrganizationMember">
+                OrganizationMember
+              </a>
+            </li>
+            <li>
+              <a href="models/contactorganizationtypes.html" class="toc-h1 toc-link" data-title="OrganizationType">
+                OrganizationType
+              </a>
+            </li>
+            <li>
+              <a href="models/payments.html" class="toc-h1 toc-link" data-title="Payment">
+                Payment
+              </a>
+            </li>
+            <li>
+              <a href="models/paymentdeadlines.html" class="toc-h1 toc-link" data-title="PaymentDeadline">
+                PaymentDeadline
+              </a>
+            </li>
+            <li>
+              <a href="models/paymentperiods.html" class="toc-h1 toc-link" data-title="PaymentPeriod">
+                PaymentPeriod
+              </a>
+            </li>
+            <li>
+              <a href="models/paymentplans.html" class="toc-h1 toc-link" data-title="PaymentPlan">
+                PaymentPlan
+              </a>
+            </li>
+            <li>
+              <a href="models/paymentplanstudents.html" class="toc-h1 toc-link" data-title="PaymentPlanStudent">
+                PaymentPlanStudent
+              </a>
+            </li>
+            <li>
+              <a href="models/pendingcharges.html" class="toc-h1 toc-link" data-title="PendingCharge">
+                PendingCharge
+              </a>
+            </li>
+            <li>
+              <a href="models/people.html" class="toc-h1 toc-link" data-title="Person">
+                Person
+              </a>
+            </li>
+            <li>
+              <a href="models/personraces.html" class="toc-h1 toc-link" data-title="PersonRace">
+                PersonRace
+              </a>
+            </li>
+            <li>
+              <a href="models/personrelationships.html" class="toc-h1 toc-link" data-title="PersonRelationship">
+                PersonRelationship
+              </a>
+            </li>
+            <li>
+              <a href="models/phonenumbers.html" class="toc-h1 toc-link" data-title="PhoneNumber">
+                PhoneNumber
+              </a>
+            </li>
+            <li>
+              <a href="models/populiinvoice.html" class="toc-h1 toc-link" data-title="PopuliInvoice">
+                PopuliInvoice
+              </a>
+            </li>
+            <li>
+              <a href="models/populipayment.html" class="toc-h1 toc-link" data-title="PopuliPayment">
+                PopuliPayment
+              </a>
+            </li>
+            <li>
+              <a href="models/bulletinboardposts.html" class="toc-h1 toc-link" data-title="Post">
+                Post
+              </a>
+            </li>
+            <li>
+              <a href="models/printlayouts.html" class="toc-h1 toc-link" data-title="PrintLayout">
+                PrintLayout
+              </a>
+            </li>
+            <li>
+              <a href="models/programs.html" class="toc-h1 toc-link" data-title="Program">
+                Program
+              </a>
+            </li>
+            <li>
+              <a href="models/questions.html" class="toc-h1 toc-link" data-title="Question">
+                Question
+              </a>
+            </li>
+            <li>
+              <a href="models/questioncategories.html" class="toc-h1 toc-link" data-title="QuestionCategory">
+                QuestionCategory
+              </a>
+            </li>
+            <li>
+              <a href="models/races.html" class="toc-h1 toc-link" data-title="Race">
+                Race
+              </a>
+            </li>
+            <li>
+              <a href="models/refunds.html" class="toc-h1 toc-link" data-title="Refund">
+                Refund
+              </a>
+            </li>
+            <li>
+              <a href="models/refundpolicies.html" class="toc-h1 toc-link" data-title="RefundPolicy">
+                RefundPolicy
+              </a>
+            </li>
+            <li>
+              <a href="models/relationshiptypes.html" class="toc-h1 toc-link" data-title="RelationshipType">
+                RelationshipType
+              </a>
+            </li>
+            <li>
+              <a href="models/requirementexceptions.html" class="toc-h1 toc-link" data-title="RequirementException">
+                RequirementException
+              </a>
+            </li>
+            <li>
+              <a href="models/returnreasons.html" class="toc-h1 toc-link" data-title="ReturnReason">
+                ReturnReason
+              </a>
+            </li>
+            <li>
+              <a href="models/roles.html" class="toc-h1 toc-link" data-title="Role">
+                Role
+              </a>
+            </li>
+            <li>
+              <a href="models/rooms.html" class="toc-h1 toc-link" data-title="Room">
+                Room
+              </a>
+            </li>
+            <li>
+              <a href="models/roomplans.html" class="toc-h1 toc-link" data-title="RoomPlan">
+                RoomPlan
+              </a>
+            </li>
+            <li>
+              <a href="models/roomplanstudents.html" class="toc-h1 toc-link" data-title="RoomPlanStudent">
+                RoomPlanStudent
+              </a>
+            </li>
+            <li>
+              <a href="models/rubrics.html" class="toc-h1 toc-link" data-title="Rubric">
+                Rubric
+              </a>
+            </li>
+            <li>
+              <a href="models/sapoverrides.html" class="toc-h1 toc-link" data-title="SAPOverride">
+                SAPOverride
+              </a>
+            </li>
+            <li>
+              <a href="models/sappolicies.html" class="toc-h1 toc-link" data-title="SAPPolicy">
+                SAPPolicy
+              </a>
+            </li>
+            <li>
+              <a href="models/salesreceipts.html" class="toc-h1 toc-link" data-title="SalesReceipt">
+                SalesReceipt
+              </a>
+            </li>
+            <li>
+              <a href="models/shippingmethods.html" class="toc-h1 toc-link" data-title="ShippingMethod">
+                ShippingMethod
+              </a>
+            </li>
+            <li>
+              <a href="models/specializations.html" class="toc-h1 toc-link" data-title="Specialization">
+                Specialization
+              </a>
+            </li>
+            <li>
+              <a href="models/specializationtypes.html" class="toc-h1 toc-link" data-title="SpecializationType">
+                SpecializationType
+              </a>
+            </li>
+            <li>
+              <a href="models/standardizedtests.html" class="toc-h1 toc-link" data-title="StandardizedTest">
+                StandardizedTest
+              </a>
+            </li>
+            <li>
+              <a href="models/standardizedtestscores.html" class="toc-h1 toc-link" data-title="StandardizedTestScore">
+                StandardizedTestScore
+              </a>
+            </li>
+            <li>
+              <a href="models/standardizedtestsectionscores.html" class="toc-h1 toc-link" data-title="StandardizedTestSectionScore">
+                StandardizedTestSectionScore
+              </a>
+            </li>
+            <li>
+              <a href="models/students.html" class="toc-h1 toc-link" data-title="Student">
+                Student
+              </a>
+            </li>
+            <li>
+              <a href="models/studentadvisors.html" class="toc-h1 toc-link" data-title="StudentAdvisor">
+                StudentAdvisor
+              </a>
+            </li>
+            <li>
+              <a href="models/studentcampuses.html" class="toc-h1 toc-link" data-title="StudentCampus">
+                StudentCampus
+              </a>
+            </li>
+            <li>
+              <a href="models/studentconsequences.html" class="toc-h1 toc-link" data-title="StudentConsequence">
+                StudentConsequence
+              </a>
+            </li>
+            <li>
+              <a href="models/studentdefaulttuitionschedules.html" class="toc-h1 toc-link" data-title="StudentDefaultTuitionSchedule">
+                StudentDefaultTuitionSchedule
+              </a>
+            </li>
+            <li>
+              <a href="models/studentdegrees.html" class="toc-h1 toc-link" data-title="StudentDegree">
+                StudentDegree
+              </a>
+            </li>
+            <li>
+              <a href="models/studentflags.html" class="toc-h1 toc-link" data-title="StudentFlag">
+                StudentFlag
+              </a>
+            </li>
+            <li>
+              <a href="models/studenthonors.html" class="toc-h1 toc-link" data-title="StudentHonor">
+                StudentHonor
+              </a>
+            </li>
+            <li>
+              <a href="models/studentprograms.html" class="toc-h1 toc-link" data-title="StudentProgram">
+                StudentProgram
+              </a>
+            </li>
+            <li>
+              <a href="models/studentspecializations.html" class="toc-h1 toc-link" data-title="StudentSpecialization">
+                StudentSpecialization
+              </a>
+            </li>
+            <li>
+              <a href="models/studentviolations.html" class="toc-h1 toc-link" data-title="StudentViolation">
+                StudentViolation
+              </a>
+            </li>
+            <li>
+              <a href="models/tags.html" class="toc-h1 toc-link" data-title="Tag">
+                Tag
+              </a>
+            </li>
+            <li>
+              <a href="models/todos.html" class="toc-h1 toc-link" data-title="Todo">
+                Todo
+              </a>
+            </li>
+            <li>
+              <a href="models/todotemplates.html" class="toc-h1 toc-link" data-title="TodoTemplate">
+                TodoTemplate
+              </a>
+            </li>
+            <li>
+              <a href="models/transcriptrequests.html" class="toc-h1 toc-link" data-title="TranscriptRequest">
+                TranscriptRequest
+              </a>
+            </li>
+            <li>
+              <a href="models/transcriptrequestdeliverymethods.html" class="toc-h1 toc-link" data-title="TranscriptRequestDeliveryMethod">
+                TranscriptRequestDeliveryMethod
+              </a>
+            </li>
+            <li>
+              <a href="models/transcriptrequestfeerules.html" class="toc-h1 toc-link" data-title="TranscriptRequestFeeRule">
+                TranscriptRequestFeeRule
+              </a>
+            </li>
+            <li>
+              <a href="models/transfercredits.html" class="toc-h1 toc-link" data-title="TransferCredit">
+                TransferCredit
+              </a>
+            </li>
+            <li>
+              <a href="models/transfercreditprograms.html" class="toc-h1 toc-link" data-title="TransferCreditProgram">
+                TransferCreditProgram
+              </a>
+            </li>
+            <li>
+              <a href="models/transferinstitutions.html" class="toc-h1 toc-link" data-title="TransferInstitution">
+                TransferInstitution
+              </a>
+            </li>
+            <li>
+              <a href="models/tuitionschedules.html" class="toc-h1 toc-link" data-title="TuitionSchedule">
+                TuitionSchedule
+              </a>
+            </li>
+            <li>
+              <a href="models/tuitionschedulestudents.html" class="toc-h1 toc-link" data-title="TuitionScheduleStudent">
+                TuitionScheduleStudent
+              </a>
+            </li>
+            <li>
+              <a href="models/users.html" class="toc-h1 toc-link" data-title="User">
+                User
+              </a>
+            </li>
+            <li>
+              <a href="models/utilities.html" class="toc-h1 toc-link" data-title="Utilities">
+                Utilities
+              </a>
+            </li>
+            <li>
+              <a href="models/violations.html" class="toc-h1 toc-link" data-title="Violation">
+                Violation
+              </a>
+            </li>
+            <li>
+              <a href="models/webhooks.html" class="toc-h1 toc-link" data-title="Webhooks">
+                Webhooks
+              </a>
+            </li>
+            <li>
+              <a href="models/websites.html" class="toc-h1 toc-link" data-title="Website">
+                Website
+              </a>
+            </li>
+        </ul>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the documentation site for the Populi API version 2.x.</p>
+
+<p>This is a modern REST API, allowing you to integrate most of the data in your school&#39;s Populi instance with other outside services and your own custom software. The data object format shown here is also used by webhooks coming from Populi.</p>
+
+<p>If you are looking for our <a href="https://support.populiweb.com/hc/en-us/articles/223798787-API-Basics">old API</a>, it is deprecated and will receive no further development (except for security updates), however you can still look up the <a href="https://support.populiweb.com/hc/en-us/articles/223798747-API-Reference">legacy API reference</a>.</p>
+
+<p>If you need help, first check your API logs in Populi and look at the provided examples. The API channel on our Discord server is also a good place to ask for help or see what other developers are doing. For specific questions, please email <a href="mailto:support@populi.co">support@populi.co</a>.</p>
+
+<aside class="notice">
+This documentation updated on 2026-09-21 11:05:10 PST
+</aside>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>Every request must contain an API Key token in the header.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://yourschool.populiweb.com/api2/object/method"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer YOUR_POPULI_API_KEY"</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
+  <span class="s1">'https://yourschool.populiweb.com/api2/object/method'</span><span class="p">,</span> 
+  <span class="ss">headers: </span><span class="p">{</span>
+    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_POPULI_API_KEY'</span>
+  <span class="p">}.</span><span class="nf">to_json</span>
+<span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
+  <span class="s">"https://yourschool.populiweb.com/api2/object/method"</span><span class="p">,</span> 
+  <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+    <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer YOUR_POPULI_API_KEY"</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">RestSharp</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">();</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="k">new</span> <span class="nf">Uri</span><span class="p">(</span><span class="s">"https://yourschool.populiweb.com/api2/object/method"</span><span class="p">),</span> <span class="n">Method</span><span class="p">.</span><span class="n">Get</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer YOUR_POPULI_API_KEY"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response_object</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">response_object</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://yourschool.populiweb.com/api2/object/method'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Authorization: Bearer YOUR_POPULI_API_KEY'</span><span class="p">]);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_CUSTOMREQUEST</span><span class="p">,</span> <span class="s1">'GET'</span><span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$response_decoded</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response_decoded</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>YOUR_POPULI_API_KEY</code> with your API key token.</p>
+</blockquote>
+
+<p>Populi uses API Keys to control access to the API. Populi Account Administrators can create API Keys and give them to developers to use. API Keys are given roles just like users are, which determines what exactly they have access to. You can also specify which users are Log Viewers of a particular key. You should make your developers log viewers of the keys they use so they can debug their own calls. To manage your API Keys, go to Account &amp; Settings; under the Account heading, click API and go to the Keys view.</p>
+
+<p>API Keys can have up to two active tokens associated with them. Tokens will look something like: <code>sk_j4U265CpkDEIXSAYwAVV1ryf2hiYo</code></p>
+
+<p>Populi expects for an API Key token to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code>Authorization: Bearer sk_j4U265CpkDEIXSAYwAVV1ryf2hiYo</code></p>
+
+<aside class="notice">
+You must replace <code>YOUR_POPULI_API_KEY</code> with your own API Key token in the provided code examples.
+</aside>
+
+<p>If you have a sandbox copy of your Populi instance that you use for testing, live API keys will not function on it. You will need to use <code>sk_sandbox_</code> prefixed keys instead. The opposite is also true. Sandbox keys will not work on the live site.</p>
+<h1 id='request-and-response-format'>Request and Response Format</h1>
+<p>All API calls will be to your school&#39;s Populi instance URL + <code>/api2/</code> + the route.</p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>GET https://yourschool.populiweb.com/api2/people
+</code></pre></div>
+<p>Some API calls include parameters (integers) in the URL path.</p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>POST https://yourschool.populiweb.com/api2/people/55782/phonenumbers/223950/update
+</code></pre></div>
+<p>Some calls require additional parameters. These will need to be included as JSON in the body of the request.</p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>POST https://yourschool.populiweb.com/api2/people/55782/phonenumbers/create
+{
+  "number": "555-893-0032",
+  "type": "home"
+}
+</code></pre></div>
+<p>Most parameters correspond to properties of the data object in question and should be at the top level of your JSON request. However, some calls also have &quot;action parameters&quot;, that should be nested under a key named <code>actions</code>.</p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>POST https://yourschool.populiweb.com/api2/users/55782
+{
+  "username": "jimmy57",
+  "actions": {
+    "send_welcome_email": true
+  }
+}
+</code></pre></div>
+<p><a name="request-and-response-format"></a>All API calls will contain JSON in the body of the HTTP response. This response will always be either:</p>
+
+<ul>
+<li>A single data object</li>
+<li>A list object containing an array of data objects</li>
+<li>An error object containing information on what went wrong or why the request was invalid</li>
+</ul>
+
+<p>There are a tiny handful of exceptions to this convention. </p>
+
+<ul>
+<li>API calls that contain a file upload will contain the file data in the body of the request and any additional parameters must be included as POST variables instead of JSON in the body. </li>
+<li>API calls that return a file to download (such as a XLS, CSV, or PDF), will contain the file in the response instead of JSON.</li>
+<li>If you are using a strict software library that does not allow GET calls to have any data in the request body, then you may alternately include parameters as JSON in the URL string. Use a single parameter in the url called <code>parameters</code> for this purpose.</li>
+</ul>
+
+<blockquote>
+<p>Alternate Example, JSON in a URL parameter</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>POST https://yourschool.populiweb.com/api2/courseofferings?parameters={"academic_term_id":5557}
+</code></pre></div>
+<p>JSON in the request must be valid. Trailing commas are not permitted. The documentation provides example requests and responses for every call.</p>
+
+<p>All responses include the <code>&quot;sandbox&quot;</code> property. This will be set to <code>true</code> for responses or webhooks originating from a validation or demo instance. It will be <code>false</code> for data or events from your live production instance.</p>
+<h1 id='objects'>Objects</h1>
+<p>Most API calls return a data object. A data object will always include its type name (e.g. <code>&quot;object&quot;: &quot;person&quot;</code>) and its unique numeric id (e.g. <code>&quot;id&quot;: &quot;88932&quot;</code> ). The data object will also contain many other fields, some of which may contain additional nested objects.</p>
+<h1 id='expandable-objects'>Expandable Objects</h1>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>GET https://yourschool.populiweb.com/api2/academicterms/994/courseofferings
+{
+    "expand": [
+      "faculty",
+      "grades"
+    ]
+}
+</code></pre></div>
+<p>Some calls are expandable. That means, in the request, you can specify that you want additional information included in the response. For example calling <code>/people/123</code> will give you back basic information about the person with ID 123. However, calling <code>/people/123</code> with <code>&quot;expand&quot;: [&quot;addresses&quot;, &quot;phone_numbers&quot;, &quot;tags&quot;]</code> in the JSON request body will cause that person&#39;s addresses, phone numbers, and tags to be included in the response.</p>
+<h1 id='lists-and-paging'>Lists and Paging</h1>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>GET https://yourschool.populiweb.com/api2/users
+{
+    "page": 2
+}
+</code></pre></div>
+<p>Some API calls return a list of many data objects. For example, a call to find everyone with the last name <code>smith</code> may return several hundred results. Most lists contain a maximum of 200 records per response. You can use the <code>page</code> parameter in your request to request additional results. You can use the <code>limit</code> parameter in your request to reduce the maximum number of records returned per response.</p>
+
+<p>Do not just add (e.g. <code>&amp;page=2</code>) to the URL. The <code>page</code> parameter must be included in the JSON body of the request, like all parameters.</p>
+<h1 id='filter-conditions-for-reports'>Filter conditions for reports</h1>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>GET https://yourschool.populiweb.com/api2/people
+{
+    "filter": {
+        "0": {
+            "logic": "ALL",
+            "fields": [
+                {
+                    "name": "role",
+                    "value": {
+                        "id": "5",
+                        "status": "ACTIVE"
+                    },
+                    "positive": "1"
+                },
+                {
+                    "name": "tag",
+                    "value": {
+                        "display_text": "Summer Intensive",
+                        "id": "443936"
+                    },
+                    "positive": "1"
+                },
+                {
+                    "name": "citizenship",
+                    "value": "US",
+                    "positive": "0"
+                }
+            ]
+        }
+    }
+}
+</code></pre></div>
+<p>The Populi interface provides many reports and index pages that allow you to construct complex filter conditions. For example, in the People report, you could construct conditions that effectively say &quot;Show me all the active students with the tag &#39;Summer Intensive&#39; who are not US citizens.&quot; All of these filter conditions are also available when making equivalent calls via the API. However, the format to specify these conditions is complex and requires a lot of nested properties. Instead of trying to explain how to build them, there is a much easier way:</p>
+
+<ul>
+<li>In Populi, navigate to the report that returns the data you care about.</li>
+<li>Use the interface to add a variety of conditions and logic until you get the results you want.</li>
+<li>Save the current state of the report as a preset and give it a name.</li>
+<li>Edit the preset report. In the dialog you will see a link titled &quot;Show JSON for API&quot;.</li>
+<li>Copy and paste the filter condition JSON into your API code to get back the same results.</li>
+</ul>
+<h1 id='errors'>Errors</h1>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+  "object": "error",
+  "code": 400,
+  "type": "missing_parameter",
+  "message": "Missing required parameter: academic_term_id",
+  "sandbox": true
+}
+</code></pre></div>
+<p>Some API calls will return an error object. The error object will contain additional details about what happened to assist with your debugging. Errors can result from many things such as requesting an object that doesn&#39;t exist, or supplying an invalid parameter, or trying to call a route your API key does not have permission to use.</p>
+<h1 id='rate-limits'>Rate Limits</h1>
+<p>Populi enforces API rate-limits in order to stay responsive for all users. The rate limits are as follows:</p>
+
+<ul>
+<li>3AM - 7PM (Pacific Standard Time): 50 requests per minute per API key.</li>
+<li>7PM - 3AM (Pacific Standard Time): 100 requests per minute per API key.</li>
+<li>Certain &quot;heavy&quot; API calls, cannot be called concurrently. That is, you can only make one heavy call at a time (e.g. pulling a Data Slicer report).</li>
+<li>There are additional per-IP and per-school limits.</li>
+</ul>
+
+<p>If you pass your limit, Populi will return HTTP response code 429 (Too Many Requests).</p>
+<h2 id='handling-429-response-codes-by-exponentially-backing-off'>Handling 429 response codes by exponentially backing off</h2>
+<p>If your app exceeds its rate limit, you should pause for just over a minute before sending additional requests (that way you&#39;ll be guaranteed that the timer has been re-set). However, it&#39;s much more efficient to design your app to stay below the limit and avoid 429 responses altogether! You could do this by placing a small delay between calls.</p>
+
+<p>If your app is making API requests from multiple threads, you&#39;ll need to make sure all threads are backing off when receiving 429 responses.</p>
+<h2 id='best-practices-to-avoid-rate-limits'>Best practices to avoid rate limits</h2>
+<p>We recommend the following practices to reduce interruptions:</p>
+
+<ul>
+<li>Avoid constant polling. Listen for automation webhooks where possible. </li>
+<li>Add a small delay between rapid API calls (e.g. <code>sleep(1)</code> or equivalent)</li>
+<li>Cache your own data when you need to store specialized values or rapidly query large data sets.</li>
+<li>Only pull the data you need by adding filter condition parameters to reports</li>
+</ul>
+<h1 id='example-code'>Example Code</h1>
+<p>Example code for each call is provided below for each route in shell (curl), Ruby, Python, C#.Net, and PHP. Some of the provided examples depend on popular libraries you may need to include in your project. Feel free to use whatever libraries or methods you want.</p>
+
+<p>If you a power user, but lacking in development skills, parts of this API can be accessed via the <a href="https://zapier.com">Zapier</a> service for building third party integrations. If you are a Zapier user, you may email <a href="mailto:support@populi.co">support@populi.co</a> and ask for a feature invite link.</p>
+
+<p>If you are just getting started, we recommend making a few of your first calls using the <a href="https://www.postman.com/downloads/">Postman</a> tool. Postman is a cross-platform API experimentation tool that provides an easy interface to see what is going on. We also have a Postman <a href="images/populi.postman_collection.json">collection of example calls</a> to get you started! After downloading it, go to the variable settings and replace the <code>school_url</code> with the URL of your own school&#39;s Populi instance. Under the Authorization settings you&#39;ll need to paste in a working API key of your own.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="csharp">csharp</a>
+                <a href="#" data-language-name="php">php</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
