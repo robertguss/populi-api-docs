@@ -48,6 +48,23 @@ last copy. A failed check writes nothing and leaves the fetched pages in
 `.sync-tmp/raw` for inspection; `--allow-shrink` overrides it when the change is
 real.
 
+## Keeping it current
+
+GitHub Actions is the only writer. `.github/workflows/sync.yml` runs every
+Monday (and on demand from the Actions tab, with an optional force refetch): it
+runs the tests, then `populi-docs sync --commit`, then pushes. An unchanged week
+costs one request to Populi and makes no commit. A failed sanity check fails the
+run, writes nothing, and keeps the rejected pages as a run artifact for 14 days.
+
+Local checkouts only `git pull`. The `populi-api` Claude Code skill pulls,
+compares the live docs stamp with the repo's, and dispatches the workflow when
+Populi is ahead, so a change lands between Mondays when someone needs it. A
+local `populi-docs sync` works too, but its commit would race the workflow's.
+
+GitHub disables scheduled workflows after 60 days without repository activity,
+which can happen here when Populi publishes nothing for two months. The skill
+re-enables the workflow before it dispatches it.
+
 ## How it works
 
 The site is a static Slate site with one page per model. Every page has the same
