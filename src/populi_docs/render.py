@@ -66,7 +66,7 @@ def render_llms_txt(models: list[Model], stamp: str) -> str:
         if m["webhook_events"]:
             detail = f"{len(m['webhook_events'])} webhook events and their payloads"
         elif eps:
-            paths = sorted({a["path"] for a in eps}, key=len)[:3]
+            paths = sorted({a["path"] for a in eps}, key=lambda p: (len(p), p))[:3]
             more = "" if len(eps) <= 3 else ", …"
             noun = "endpoint" if len(eps) == 1 else "endpoints"
             detail = f"{len(eps)} {noun}: " + ", ".join(f"`{p}`" for p in paths) + more

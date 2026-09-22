@@ -91,3 +91,30 @@ def test_one_endpoint_is_singular(tmp_path):
     assert "[Widget](reference/models/widgets.md): 1 endpoint:" in render_llms_txt(
         build.models, "x"
     )
+
+
+def test_llms_txt_is_the_same_on_every_run(tmp_path):
+    """Equal-length paths are ordered by name, not by set iteration order."""
+    import subprocess
+    import sys
+
+    write_raw(tmp_path / "raw")
+    script = (
+        "import sys; from populi_docs import sync, render;"
+        "b = sync.build_from_raw(__import__('pathlib').Path(sys.argv[1]));"
+        "b.models[0]['actions'] += [dict(b.models[0]['actions'][0], path=p)"
+        " for p in ('/zz', '/aa', '/mm')];"
+        "print(render.render_llms_txt(b.models, 'x'))"
+    )
+    outputs = {
+        subprocess.run(
+            [sys.executable, "-c", script, str(tmp_path / "raw")],
+            env={"PYTHONHASHSEED": seed},
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout
+        for seed in ("1", "2", "3", "4")
+    }
+    assert len(outputs) == 1
+    assert "`/aa`, `/mm`, `/zz`" in outputs.pop()
