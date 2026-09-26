@@ -1362,6 +1362,9 @@
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
 <span class="nt">-H</span> <span class="s2">"Authorization: Bearer YOUR_POPULI_API_KEY"</span> <span class="se">\ </span>
 <span class="nt">-X</span> GET
+<span class="nt">-d</span> <span class="s1">'{
+    "academic_year_id": 4
+}'</span> <span class="se">\ </span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
  <span class="s1">'https://yourschool.populiweb.com/api2/coursegroups/(coursegroup)'</span><span class="p">,</span>
@@ -1413,6 +1416,22 @@
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /coursegroups/(coursegroup)</code></p>
 <h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>academic_year_id</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
 <p>No additional parameters are needed beyond the ID of the object being requested that appears in the URL.</p>
 <h3 id='expandable-properties'>Expandable Properties</h3>
 <ul>

@@ -7,6 +7,14 @@ descriptions were reworded. Examples are not compared.
 
 <!-- entries -->
 
+## 2026-09-24 16:39:54 PST
+
+Synced 2026-09-26.
+
+### Parameters
+
+- + `GET /coursegroups/(coursegroup)`: parameter `academic_year_id`
+
 ## 2026-09-21 11:05:10 PST
 
 First snapshot, synced 2026-09-22: 177 models, 682 endpoints, 97 webhook events.
