@@ -7,6 +7,19 @@ descriptions were reworded. Examples are not compared.
 
 <!-- entries -->
 
+## 2026-09-29 16:27:55 PST
+
+Synced 2026-09-30.
+
+### Expands
+
+- + `GET /campuslife/students`: `advisors`, `campuses`, `flags`
+- + `GET /people`: `advisors`, `campuses`, `flags`
+- + `GET /people/(person)`: `advisors`, `campuses`, `flags`
+- + `GET /people/by_student_id`: `advisors`, `campuses`, `flags`
+- + `GET /people/deleted`: `advisors`, `campuses`, `flags`
+- + `GET /programs/(program)/students`: `advisors`, `campuses`, `flags`
+
 ## 2026-09-24 16:39:54 PST
 
 Synced 2026-09-26.
