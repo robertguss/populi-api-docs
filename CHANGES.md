@@ -7,6 +7,16 @@ descriptions were reworded. Examples are not compared.
 
 <!-- entries -->
 
+## 2026-09-30 16:36:50 PST
+
+Synced 2026-10-01.
+
+### Expands
+
+- + `GET /aidapplications`: `coa_categories`
+- + `GET /people/(person)/aidapplications`: `coa_categories`
+- + `GET /people/(person)/aidapplications/(aidapplication)`: `coa_categories`
+
 ## 2026-09-29 16:27:55 PST
 
 Synced 2026-09-30.

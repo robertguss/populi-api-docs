@@ -1,6 +1,6 @@
 # Populi API2 reference
 
-> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-09-29 16:27:55 PST. 177 models, 682 endpoints.
+> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-09-30 16:36:50 PST. 177 models, 682 endpoints.
 
 Start with the overview for how every request works. To find an endpoint, search `reference/endpoints.md` (one line per endpoint), then open its model page for fields, parameters, filter conditions, expands, permissions, and examples.
 

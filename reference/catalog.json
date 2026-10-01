@@ -1,7 +1,7 @@
 {
  "source": "https://populi.co/api/",
- "docs_updated_on": "2026-09-29 16:27:55 PST",
- "fetched_at": "2026-09-30T15:55:57+00:00",
+ "docs_updated_on": "2026-09-30 16:36:50 PST",
+ "fetched_at": "2026-10-01T18:47:38+00:00",
  "counts": {
   "models": 177,
   "endpoints": 682,
@@ -2582,7 +2582,8 @@
      "expands": [
       "components",
       "monthly_efcs",
-      "questions"
+      "questions",
+      "coa_categories"
      ],
      "permissions": {
       "note": "One of the following roles is required to call this method:",
@@ -2605,7 +2606,8 @@
      "expands": [
       "components",
       "monthly_efcs",
-      "questions"
+      "questions",
+      "coa_categories"
      ],
      "permissions": {
       "note": "One of the following roles is required to call this method:",
@@ -2870,7 +2872,8 @@
      "expands": [
       "components",
       "monthly_efcs",
-      "questions"
+      "questions",
+      "coa_categories"
      ],
      "permissions": {
       "note": "One of the following roles is required to call this method:",
