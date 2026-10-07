@@ -1,6 +1,6 @@
 # Populi API2: every endpoint
 
-> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-09-30 16:36:50 PST. 682 endpoints, sorted by path. Paths are relative to `https://<school>.populiweb.com/api2`; `(name)` is an id in the path.
+> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-05 17:15:39 PST. 696 endpoints, sorted by path. Paths are relative to `https://<school>.populiweb.com/api2`; `(name)` is an id in the path.
 
 | Method | Path | Action | Model | Summary |
 |---|---|---|---|---|
@@ -69,10 +69,6 @@
 | GET | `/campaigns/(campaign)` | show | [Campaign](models/campaigns.md) | Retrieves a specific Campaign object. |
 | GET | `/campuses` | index | [Campus](models/campuses.md) | Retrieves all Campus objects. |
 | GET | `/campuses/(campus)` | show | [Campus](models/campuses.md) | Retrieves a specific Campus object. |
-| GET | `/campuslife/consequences` | index (campus life) | [StudentConsequence](models/studentconsequences.md) | Retrieves all StudentConsequence objects that match given filter conditions. |
-| GET | `/campuslife/rooms` | index (campus life) | [Room](models/rooms.md) | Retrieves all Room objects that match given filter conditions. |
-| GET | `/campuslife/students` | index (campus life) | [Person](models/people.md) | Retrieves all Person objects that match given filter conditions. |
-| GET | `/campuslife/violations` | index (campus life) | [StudentViolation](models/studentviolations.md) | Retrieves all StudentViolation objects that match given filter conditions. |
 | GET | `/campuslifecustominfofields` | index (campus life) | [CustomInfoField](models/custominfofield.md) | Retrieves all CustomInfoField objects, of the campus life type. |
 | GET | `/campuslifecustominfofields/(campuslifecustominfofield)` | show (campus life) | [CustomInfoField](models/custominfofield.md) | Retrieves a specific CustomInfoField object, of the campus life type. |
 | GET | `/canadiandonationreceipts/(canadiandonationreceipt)` | show | [CanadianDonationReceipt](models/canadiandonationreceipts.md) | Retrieves a specific CanadianDonationReceipt object. |
@@ -281,8 +277,27 @@
 | GET | `/lettertemplates` | index | [LetterTemplate](models/lettertemplates.md) | Retrieves all LetterTemplate objects. |
 | GET | `/lettertemplates/(lettertemplate)` | show | [LetterTemplate](models/lettertemplates.md) | Retrieves a specific LetterTemplate object. |
 | GET | `/libraryresources` | index | [LibraryResource](models/libraryresources.md) | Retrieves all LibraryResource objects that match given filter conditions. |
+| POST | `/libraryresources` | create | [LibraryResource](models/libraryresources.md) | Creates a new LibraryResource object. |
+| DELETE | `/libraryresources/(libraryresource)` | delete | [LibraryResource](models/libraryresources.md) | Deletes an existing LibraryResource object. |
 | GET | `/libraryresources/(libraryresource)` | show | [LibraryResource](models/libraryresources.md) | Retrieves a specific LibraryResource object. |
+| PUT | `/libraryresources/(libraryresource)` | update | [LibraryResource](models/libraryresources.md) | Updates an existing LibraryResource object. |
+| GET | `/libraryresources/(libraryresource)/copies` | index (copies) | [LibraryResourceCopy](models/libraryresourcecopies.md) | Retrieves all LibraryResourceCopy objects tied to a specific Libraryresource. |
+| GET | `/libraryresources/(libraryresource)/copies/(libraryresourcecopy)` | show (copy) | [LibraryResourceCopy](models/libraryresourcecopies.md) | Retrieves a specific LibraryResourceCopy object. |
+| DELETE | `/libraryresources/(libraryresource)/copies/(libraryresourcecopy)/delete` | delete_copy | [LibraryResourceCopy](models/libraryresourcecopies.md) |  |
+| PUT | `/libraryresources/(libraryresource)/copies/(libraryresourcecopy)/update` | update_copy | [LibraryResourceCopy](models/libraryresourcecopies.md) | Updates the copy attribute of an existing LibraryResourceCopy object. |
+| POST | `/libraryresources/(libraryresource)/copies/create` | create_copy | [LibraryResourceCopy](models/libraryresourcecopies.md) |  |
+| GET | `/libraryresources/(libraryresource)/digitalresources` | index (digital resources) | [DigitalResource](models/digitalresources.md) | Retrieves all DigitalResource objects tied to a specific Libraryresource. |
+| GET | `/libraryresources/(libraryresource)/digitalresources/(digitalresource)` | show (digital resource) | [DigitalResource](models/digitalresources.md) | Retrieves a specific DigitalResource object. |
+| DELETE | `/libraryresources/(libraryresource)/digitalresources/(digitalresource)/delete` | delete_digital_resource | [DigitalResource](models/digitalresources.md) |  |
+| PUT | `/libraryresources/(libraryresource)/digitalresources/(digitalresource)/update` | update_digital_resource | [DigitalResource](models/digitalresources.md) | Updates the digital_resource attribute of an existing DigitalResource object. |
+| POST | `/libraryresources/(libraryresource)/digitalresources/create` | create_digital_resource | [DigitalResource](models/digitalresources.md) |  |
+| POST | `/libraryresources/(libraryresource)/digitalresources/upload` | upload file (digital resource) | [DigitalResource](models/digitalresources.md) |  |
+| DELETE | `/libraryresources/(libraryresource)/fields/(libraryresourcefield)/delete` | delete_field | [LibraryResource](models/libraryresources.md) |  |
+| PUT | `/libraryresources/(libraryresource)/fields/(libraryresourcefield)/update` | update_field | [LibraryResource](models/libraryresources.md) | Updates the field attribute of an existing LibraryResource object. |
+| POST | `/libraryresources/(libraryresource)/fields/create` | create_field | [LibraryResource](models/libraryresources.md) | Adds a value to one of the resource's fields. |
+| POST | `/libraryresources/(libraryresource)/update_image` | update_image | [LibraryResource](models/libraryresources.md) | Upload an image file to use as the resource's image. |
 | GET | `/libraryresources/fields` | library_fields | [LibraryResource](models/libraryresources.md) |  |
+| GET | `/libraryresourcetypes` | index | [LibraryResourceType](models/libraryresourcetypes.md) | Retrieves all LibraryResourceType objects. |
 | GET | `/lmssync/run` | Run LMS sync | [ChangeLog](models/account.md) | Begin a sync operation between Populi and an outside LMS (e.g. |
 | GET | `/localizations` | index | [Localization](models/localizations.md) | Retrieves all Localization objects. |
 | GET | `/localizations/(localization)` | show | [Localization](models/localizations.md) | Retrieves a specific Localization object. |
@@ -685,4 +700,3 @@
 | GET | `/users/deleted` | deleted | [User](models/users.md) | Retrieves records that were deleted up to 180 days ago. |
 | GET | `/violations` | index | [Violation](models/violations.md) | Retrieves all Violation objects. |
 | GET | `/violations/(violation)` | show | [Violation](models/violations.md) | Retrieves a specific Violation object. |
-| GET | `/webhooks/examples/:trigger_abbrv` | show example webhook payload | [Utilities](models/utilities.md) | This method returns an example JSON payload of a Webhook coming from Populi triggered by a specified type of Automation. |

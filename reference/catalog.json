@@ -1,10 +1,10 @@
 {
  "source": "https://populi.co/api/",
- "docs_updated_on": "2026-09-30 16:36:50 PST",
- "fetched_at": "2026-10-01T18:47:38+00:00",
+ "docs_updated_on": "2026-10-05 17:15:39 PST",
+ "fetched_at": "2026-10-07T13:49:00+00:00",
  "counts": {
-  "models": 177,
-  "endpoints": 682,
+  "models": 180,
+  "endpoints": 696,
   "webhook_events": 97
  },
  "models": [
@@ -15188,6 +15188,193 @@
    ]
   },
   {
+   "name": "DigitalResource",
+   "slug": "digitalresources",
+   "url": "https://populi.co/api/models/digitalresources.html",
+   "objects": [
+    {
+     "name": "DigitalResource",
+     "fields": [
+      {
+       "name": "id",
+       "required": true,
+       "type": "int"
+      },
+      {
+       "name": "resource_id",
+       "required": true,
+       "type": "int"
+      },
+      {
+       "name": "file_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "url",
+       "required": false,
+       "type": "text (2100)"
+      },
+      {
+       "name": "name",
+       "required": false,
+       "type": "text (255)"
+      },
+      {
+       "name": "order_id",
+       "required": true,
+       "type": "int"
+      },
+      {
+       "name": "added_at",
+       "required": false,
+       "type": "datetime"
+      },
+      {
+       "name": "added_by_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "sandbox",
+       "required": false,
+       "type": "bool"
+      },
+      {
+       "name": "api_version",
+       "required": false,
+       "type": "--"
+      }
+     ]
+    }
+   ],
+   "actions": [
+    {
+     "name": "index (digital resources)",
+     "method": "GET",
+     "path": "/libraryresources/(libraryresource)/digitalresources",
+     "description": "Retrieves all DigitalResource objects tied to a specific Libraryresource.",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
+     }
+    },
+    {
+     "name": "create_digital_resource",
+     "method": "POST",
+     "path": "/libraryresources/(libraryresource)/digitalresources/create",
+     "description": "",
+     "params": [
+      {
+       "name": "url",
+       "required": true,
+       "type": "text (2100)",
+       "description": ""
+      },
+      {
+       "name": "name",
+       "required": true,
+       "type": "text (255)",
+       "description": "The text displayed for the link."
+      }
+     ],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
+     }
+    },
+    {
+     "name": "show (digital resource)",
+     "method": "GET",
+     "path": "/libraryresources/(libraryresource)/digitalresources/(digitalresource)",
+     "description": "Retrieves a specific DigitalResource object.",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
+     }
+    },
+    {
+     "name": "update_digital_resource",
+     "method": "PUT",
+     "path": "/libraryresources/(libraryresource)/digitalresources/(digitalresource)/update",
+     "description": "Updates the digital_resource attribute of an existing DigitalResource object.",
+     "params": [
+      {
+       "name": "name",
+       "required": false,
+       "type": "string",
+       "description": ""
+      },
+      {
+       "name": "url",
+       "required": false,
+       "type": "text (2100)",
+       "description": ""
+      },
+      {
+       "name": "order_id",
+       "required": false,
+       "type": "int",
+       "description": "Digital resources are displayed in order_id order."
+      }
+     ],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
+     }
+    },
+    {
+     "name": "delete_digital_resource",
+     "method": "DELETE",
+     "path": "/libraryresources/(libraryresource)/digitalresources/(digitalresource)/delete",
+     "description": "",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
+     }
+    },
+    {
+     "name": "upload file (digital resource)",
+     "method": "POST",
+     "path": "/libraryresources/(libraryresource)/digitalresources/upload",
+     "description": "",
+     "params": [
+      {
+       "name": "name",
+       "required": false,
+       "type": "string",
+       "description": "The display name for the file. Defaults to the name of the uploaded file."
+      }
+     ],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
+     }
+    }
+   ]
+  },
+  {
    "name": "Discipline",
    "slug": "discipline",
    "url": "https://populi.co/api/models/discipline.html",
@@ -22713,7 +22900,8 @@
      "action_params": [],
      "expands": [
       "resource_copies",
-      "resource_fields"
+      "resource_fields",
+      "digital_resources"
      ],
      "permissions": {
       "note": "One of the following roles is required to call this method:",
@@ -22721,6 +22909,51 @@
        "Library Admin",
        "Library Staff"
       ]
+     }
+    },
+    {
+     "name": "create",
+     "method": "POST",
+     "path": "/libraryresources",
+     "description": "Creates a new LibraryResource object. If any metadata or field values fail to save, the response will be an error, but the resource itself may still have been created without them.",
+     "params": [
+      {
+       "name": "title",
+       "required": true,
+       "type": "text (500)",
+       "description": ""
+      },
+      {
+       "name": "resource_type_id",
+       "required": true,
+       "type": "int",
+       "description": "The id of the resource's type (e.g. 11 = Book). A resource must have a type. See /libraryresourcetypes/index for the available types."
+      },
+      {
+       "name": "replacement_price",
+       "required": false,
+       "type": "decimal",
+       "description": ""
+      },
+      {
+       "name": "lccn",
+       "required": false,
+       "type": "text (50)",
+       "description": ""
+      },
+      {
+       "name": "fields",
+       "required": false,
+       "type": "object",
+       "description": "A map of field ids, qualified names (e.g. \"populi:ISBN\"), or aliases (e.g. \"isbn\") to values - see /libraryresources/fields for available fields. Multi-value fields take an array of values. Agent-type fields (e.g. creator, publisher) take an agent id, a name, or an object in the form {\"value\": \"name or agent id\", \"type\": \"PERSON"
+      }
+     ],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
      }
     },
     {
@@ -22750,11 +22983,582 @@
      "action_params": [],
      "expands": [
       "resource_copies",
-      "resource_fields"
+      "resource_fields",
+      "digital_resources"
      ],
+     "permissions": {
+      "note": "One of the following roles is required to call this method:",
+      "roles": [
+       "Library Admin",
+       "Library Staff"
+      ]
+     }
+    },
+    {
+     "name": "update",
+     "method": "PUT",
+     "path": "/libraryresources/(libraryresource)",
+     "description": "Updates an existing LibraryResource object.",
+     "params": [
+      {
+       "name": "resource_type_id",
+       "required": false,
+       "type": "int",
+       "description": ""
+      },
+      {
+       "name": "replacement_price",
+       "required": false,
+       "type": "decimal",
+       "description": ""
+      },
+      {
+       "name": "lccn",
+       "required": false,
+       "type": "text (50)",
+       "description": ""
+      }
+     ],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
      "permissions": {
       "note": "",
       "roles": []
+     }
+    },
+    {
+     "name": "update_image",
+     "method": "POST",
+     "path": "/libraryresources/(libraryresource)/update_image",
+     "description": "Upload an image file to use as the resource's image. Replaces any existing image.",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
+     }
+    },
+    {
+     "name": "delete",
+     "method": "DELETE",
+     "path": "/libraryresources/(libraryresource)",
+     "description": "Deletes an existing LibraryResource object.",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
+     }
+    },
+    {
+     "name": "create_field",
+     "method": "POST",
+     "path": "/libraryresources/(libraryresource)/fields/create",
+     "description": "Adds a value to one of the resource's fields.",
+     "params": [
+      {
+       "name": "field_id",
+       "required": true,
+       "type": "int",
+       "description": "The id of the field to add a value to. A qualified name (e.g. \"populi:ISBN\") or alias (e.g. \"isbn\") works too. See /libraryresources/fields for available fields."
+      },
+      {
+       "name": "value",
+       "required": true,
+       "type": "string",
+       "description": "Agent-type fields (e.g. creator, publisher) also accept an object in the form {\"value\": \"name or agent id\", \"type\": \"PERSON"
+      }
+     ],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
+     }
+    },
+    {
+     "name": "update_field",
+     "method": "PUT",
+     "path": "/libraryresources/(libraryresource)/fields/(libraryresourcefield)/update",
+     "description": "Updates the field attribute of an existing LibraryResource object.",
+     "params": [
+      {
+       "name": "value",
+       "required": true,
+       "type": "string",
+       "description": ""
+      }
+     ],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
+     }
+    },
+    {
+     "name": "delete_field",
+     "method": "DELETE",
+     "path": "/libraryresources/(libraryresource)/fields/(libraryresourcefield)/delete",
+     "description": "",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "",
+      "roles": []
+     }
+    }
+   ]
+  },
+  {
+   "name": "LibraryResourceCopy",
+   "slug": "libraryresourcecopies",
+   "url": "https://populi.co/api/models/libraryresourcecopies.html",
+   "objects": [
+    {
+     "name": "LibraryResourceCopy",
+     "fields": [
+      {
+       "name": "id",
+       "required": true,
+       "type": "int"
+      },
+      {
+       "name": "resource_id",
+       "required": true,
+       "type": "int"
+      },
+      {
+       "name": "home_library_id",
+       "required": true,
+       "type": "int"
+      },
+      {
+       "name": "location_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "current_library_id",
+       "required": true,
+       "type": "int"
+      },
+      {
+       "name": "destination_library_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "departed_at",
+       "required": false,
+       "type": "datetime"
+      },
+      {
+       "name": "call_number",
+       "required": false,
+       "type": "text (100)"
+      },
+      {
+       "name": "status",
+       "required": true,
+       "type": "enum (available, checked_out, lost, deleted, damaged, on_reserve, not_available, on_hold, not_owned)"
+      },
+      {
+       "name": "status_link_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "status_date",
+       "required": false,
+       "type": "date"
+      },
+      {
+       "name": "barcode",
+       "required": false,
+       "type": "text (100)"
+      },
+      {
+       "name": "purchase_price",
+       "required": false,
+       "type": "decimal"
+      },
+      {
+       "name": "replacement_price",
+       "required": false,
+       "type": "decimal"
+      },
+      {
+       "name": "total_loans",
+       "required": true,
+       "type": "int"
+      },
+      {
+       "name": "last_inventoried_at",
+       "required": false,
+       "type": "datetime"
+      },
+      {
+       "name": "last_inventory_location_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "last_inventoried_by_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "import_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "sort_a",
+       "required": false,
+       "type": "text (100)"
+      },
+      {
+       "name": "sort_b",
+       "required": false,
+       "type": "decimal"
+      },
+      {
+       "name": "sort_c",
+       "required": false,
+       "type": "text (50)"
+      },
+      {
+       "name": "sort_all",
+       "required": false,
+       "type": "text (200)"
+      },
+      {
+       "name": "acquisition_date",
+       "required": false,
+       "type": "date"
+      },
+      {
+       "name": "acquisition_source_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "added_at",
+       "required": false,
+       "type": "datetime"
+      },
+      {
+       "name": "added_by_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "sandbox",
+       "required": false,
+       "type": "bool"
+      },
+      {
+       "name": "api_version",
+       "required": false,
+       "type": "--"
+      }
+     ]
+    }
+   ],
+   "actions": [
+    {
+     "name": "index (copies)",
+     "method": "GET",
+     "path": "/libraryresources/(libraryresource)/copies",
+     "description": "Retrieves all LibraryResourceCopy objects tied to a specific Libraryresource.",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "One of the following roles is required to call this method:",
+      "roles": [
+       "Library Admin",
+       "Library Staff"
+      ]
+     }
+    },
+    {
+     "name": "create_copy",
+     "method": "POST",
+     "path": "/libraryresources/(libraryresource)/copies/create",
+     "description": "",
+     "params": [
+      {
+       "name": "call_number",
+       "required": true,
+       "type": "text (100)",
+       "description": ""
+      },
+      {
+       "name": "barcode",
+       "required": true,
+       "type": "text (100)",
+       "description": "Must be unique across your library. A duplicate barcode is an error (the call does not fall back to an auto-generated one)."
+      },
+      {
+       "name": "home_library_id",
+       "required": true,
+       "type": "int",
+       "description": "The id of the library the copy belongs to."
+      },
+      {
+       "name": "location_id",
+       "required": false,
+       "type": "int",
+       "description": "The id of the location within the home library."
+      },
+      {
+       "name": "status",
+       "required": false,
+       "type": "enum (available, checked_out, lost, deleted, damaged, on_reserve, not_available, on_hold, not_owned)",
+       "description": "New copies can be AVAILABLE or NOT_AVAILABLE.. Default is AVAILABLE"
+      },
+      {
+       "name": "purchase_price",
+       "required": false,
+       "type": "decimal",
+       "description": ""
+      },
+      {
+       "name": "replacement_price",
+       "required": false,
+       "type": "decimal",
+       "description": ""
+      },
+      {
+       "name": "acquisition_date",
+       "required": false,
+       "type": "date",
+       "description": "Use YYYY-MM-DD."
+      },
+      {
+       "name": "acquisition_source_id",
+       "required": false,
+       "type": "int",
+       "description": "The id of the agent the copy was acquired from. A name works too - a new agent is created if none match (numeric values are always treated as agent ids)."
+      }
+     ],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "One of the following roles is required to call this method:",
+      "roles": [
+       "Library Admin",
+       "Library Staff"
+      ]
+     }
+    },
+    {
+     "name": "show (copy)",
+     "method": "GET",
+     "path": "/libraryresources/(libraryresource)/copies/(libraryresourcecopy)",
+     "description": "Retrieves a specific LibraryResourceCopy object.",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "One of the following roles is required to call this method:",
+      "roles": [
+       "Library Admin",
+       "Library Staff"
+      ]
+     }
+    },
+    {
+     "name": "update_copy",
+     "method": "PUT",
+     "path": "/libraryresources/(libraryresource)/copies/(libraryresourcecopy)/update",
+     "description": "Updates the copy attribute of an existing LibraryResourceCopy object.",
+     "params": [
+      {
+       "name": "call_number",
+       "required": false,
+       "type": "text (100)",
+       "description": ""
+      },
+      {
+       "name": "barcode",
+       "required": false,
+       "type": "text (100)",
+       "description": "Must be unique across your library."
+      },
+      {
+       "name": "home_library_id",
+       "required": false,
+       "type": "int",
+       "description": ""
+      },
+      {
+       "name": "location_id",
+       "required": false,
+       "type": "int",
+       "description": "Must belong to the copy's home library."
+      },
+      {
+       "name": "status",
+       "required": false,
+       "type": "enum (available, checked_out, lost, deleted, damaged, on_reserve, not_available, on_hold, not_owned)",
+       "description": "You can set a copy's status to AVAILABLE, NOT_AVAILABLE, LOST, or DAMAGED. Other statuses are managed by circulation (checkouts, holds, transits)."
+      },
+      {
+       "name": "purchase_price",
+       "required": false,
+       "type": "decimal",
+       "description": ""
+      },
+      {
+       "name": "replacement_price",
+       "required": false,
+       "type": "decimal",
+       "description": ""
+      },
+      {
+       "name": "acquisition_date",
+       "required": false,
+       "type": "date",
+       "description": "Use YYYY-MM-DD."
+      },
+      {
+       "name": "acquisition_source_id",
+       "required": false,
+       "type": "int",
+       "description": "The id of the agent the copy was acquired from. A name works too - a new agent is created if none match (numeric values are always treated as agent ids)."
+      }
+     ],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "One of the following roles is required to call this method:",
+      "roles": [
+       "Library Admin",
+       "Library Staff"
+      ]
+     }
+    },
+    {
+     "name": "delete_copy",
+     "method": "DELETE",
+     "path": "/libraryresources/(libraryresource)/copies/(libraryresourcecopy)/delete",
+     "description": "",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "One of the following roles is required to call this method:",
+      "roles": [
+       "Library Admin",
+       "Library Staff"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "LibraryResourceType",
+   "slug": "libraryresourcetypes",
+   "url": "https://populi.co/api/models/libraryresourcetypes.html",
+   "objects": [
+    {
+     "name": "LibraryResourceType",
+     "fields": [
+      {
+       "name": "id",
+       "required": true,
+       "type": "int"
+      },
+      {
+       "name": "name",
+       "required": true,
+       "type": "text (50)"
+      },
+      {
+       "name": "plural_name",
+       "required": true,
+       "type": "text (50)"
+      },
+      {
+       "name": "description",
+       "required": false,
+       "type": "text (255)"
+      },
+      {
+       "name": "abbrv",
+       "required": false,
+       "type": "text (255)"
+      },
+      {
+       "name": "parent_type_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "image_name",
+       "required": false,
+       "type": "text (255)"
+      },
+      {
+       "name": "marc_leader_type",
+       "required": false,
+       "type": "text (10)"
+      },
+      {
+       "name": "added_at",
+       "required": false,
+       "type": "datetime"
+      },
+      {
+       "name": "updated_at",
+       "required": false,
+       "type": "datetime"
+      },
+      {
+       "name": "sandbox",
+       "required": false,
+       "type": "bool"
+      },
+      {
+       "name": "api_version",
+       "required": false,
+       "type": "--"
+      }
+     ]
+    }
+   ],
+   "actions": [
+    {
+     "name": "index",
+     "method": "GET",
+     "path": "/libraryresourcetypes",
+     "description": "Retrieves all LibraryResourceType objects.",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "One of the following roles is required to call this method:",
+      "roles": [
+       "Library Admin"
+      ]
      }
     }
    ]
@@ -26961,6 +27765,10 @@
        "type": "decimal"
       },
       {
+       "name": "has_active_recurring_payment",
+       "type": "bool"
+      },
+      {
        "name": "tag",
        "type": "tag"
       },
@@ -28459,131 +29267,6 @@
        "Financial Auditor",
        "Admissions Auditor",
        "Staff"
-      ]
-     }
-    },
-    {
-     "name": "index (campus life)",
-     "method": "GET",
-     "path": "/campuslife/students",
-     "description": "Retrieves all Person objects that match given filter conditions.",
-     "params": [
-      {
-       "name": "academic_term_id",
-       "required": true,
-       "type": "int",
-       "description": ""
-      },
-      {
-       "name": "filter",
-       "required": false,
-       "type": "mixed",
-       "description": "See available filter conditions"
-      },
-      {
-       "name": "page",
-       "required": false,
-       "type": "int",
-       "description": "The page of results to return if more than 200 records are found."
-      }
-     ],
-     "filters": [
-      {
-       "name": "first_name",
-       "type": "text"
-      },
-      {
-       "name": "last_name",
-       "type": "text"
-      },
-      {
-       "name": "gender",
-       "type": "enum (male, female, unknown, other)"
-      },
-      {
-       "name": "campus",
-       "type": "object id"
-      },
-      {
-       "name": "room_plan",
-       "type": "object id"
-      },
-      {
-       "name": "room",
-       "type": "text"
-      },
-      {
-       "name": "meal_plan",
-       "type": "object id"
-      },
-      {
-       "name": "program",
-       "type": "text"
-      },
-      {
-       "name": "violations",
-       "type": "integer"
-      },
-      {
-       "name": "consequences",
-       "type": "integer"
-      },
-      {
-       "name": "has_room_plan",
-       "type": "bool"
-      },
-      {
-       "name": "has_meal_plan",
-       "type": "bool"
-      },
-      {
-       "name": "tag",
-       "type": "tag"
-      },
-      {
-       "name": "custom_field",
-       "type": "custom"
-      },
-      {
-       "name": "student_housing",
-       "type": "student_housing"
-      }
-     ],
-     "action_params": [],
-     "expands": [
-      "enrollments",
-      "addresses",
-      "phone_numbers",
-      "email_addresses",
-      "websites",
-      "student",
-      "races",
-      "user",
-      "roles",
-      "tags",
-      "locks",
-      "relationships",
-      "communicationplans",
-      "aid_authorizations",
-      "profile_picture_file",
-      "notes",
-      "student_programs",
-      "student_degrees",
-      "student_specializations",
-      "degree_level",
-      "leaves_of_absence",
-      "contact_organization_members",
-      "advisors",
-      "flags",
-      "campuses"
-     ],
-     "permissions": {
-      "note": "One of the following roles is required to call this method:",
-      "roles": [
-       "Academic Admin",
-       "Registrar",
-       "Financial Admin",
-       "Campus Life"
       ]
      }
     },
@@ -32077,73 +32760,6 @@
      }
     },
     {
-     "name": "index (campus life)",
-     "method": "GET",
-     "path": "/campuslife/rooms",
-     "description": "Retrieves all Room objects that match given filter conditions.",
-     "params": [
-      {
-       "name": "academic_term_id",
-       "required": true,
-       "type": "int",
-       "description": ""
-      },
-      {
-       "name": "filter",
-       "required": false,
-       "type": "mixed",
-       "description": "See available filter conditions"
-      },
-      {
-       "name": "page",
-       "required": false,
-       "type": "int",
-       "description": "The page of results to return if more than 200 records are found."
-      }
-     ],
-     "filters": [
-      {
-       "name": "room_plan",
-       "type": "object id"
-      },
-      {
-       "name": "building",
-       "type": "object id"
-      },
-      {
-       "name": "room",
-       "type": "text"
-      },
-      {
-       "name": "capacity",
-       "type": "integer"
-      },
-      {
-       "name": "used",
-       "type": "integer"
-      },
-      {
-       "name": "available",
-       "type": "integer"
-      },
-      {
-       "name": "occupants",
-       "type": "text"
-      }
-     ],
-     "action_params": [],
-     "expands": [],
-     "permissions": {
-      "note": "One of the following roles is required to call this method:",
-      "roles": [
-       "Academic Admin",
-       "Registrar",
-       "Financial Admin",
-       "Campus Life"
-      ]
-     }
-    },
-    {
      "name": "show",
      "method": "GET",
      "path": "/rooms/(room)",
@@ -34804,85 +35420,6 @@
      }
     },
     {
-     "name": "index (campus life)",
-     "method": "GET",
-     "path": "/campuslife/consequences",
-     "description": "Retrieves all StudentConsequence objects that match given filter conditions.",
-     "params": [
-      {
-       "name": "filter",
-       "required": false,
-       "type": "mixed",
-       "description": "See available filter conditions"
-      },
-      {
-       "name": "page",
-       "required": false,
-       "type": "int",
-       "description": "The page of results to return if more than 200 records are found."
-      }
-     ],
-     "filters": [
-      {
-       "name": "first_name",
-       "type": "text"
-      },
-      {
-       "name": "last_name",
-       "type": "text"
-      },
-      {
-       "name": "consequence",
-       "type": "object id"
-      },
-      {
-       "name": "status",
-       "type": "enum"
-      },
-      {
-       "name": "description",
-       "type": "text"
-      },
-      {
-       "name": "has_fee",
-       "type": "bool"
-      },
-      {
-       "name": "fee_name",
-       "type": "text"
-      },
-      {
-       "name": "fee_amount",
-       "type": "decimal"
-      },
-      {
-       "name": "added_on",
-       "type": "date"
-      },
-      {
-       "name": "tag",
-       "type": "tag"
-      },
-      {
-       "name": "custom_field",
-       "type": "custom"
-      }
-     ],
-     "action_params": [],
-     "expands": [
-      "consequence"
-     ],
-     "permissions": {
-      "note": "One of the following roles is required to call this method:",
-      "roles": [
-       "Academic Admin",
-       "Registrar",
-       "Financial Admin",
-       "Campus Life"
-      ]
-     }
-    },
-    {
      "name": "show",
      "method": "GET",
      "path": "/people/(person)/consequences/(studentconsequence)",
@@ -36067,81 +36604,6 @@
      "filters": [],
      "action_params": [],
      "expands": [],
-     "permissions": {
-      "note": "One of the following roles is required to call this method:",
-      "roles": [
-       "Academic Admin",
-       "Registrar",
-       "Financial Admin",
-       "Campus Life"
-      ]
-     }
-    },
-    {
-     "name": "index (campus life)",
-     "method": "GET",
-     "path": "/campuslife/violations",
-     "description": "Retrieves all StudentViolation objects that match given filter conditions.",
-     "params": [
-      {
-       "name": "filter",
-       "required": false,
-       "type": "mixed",
-       "description": "See available filter conditions"
-      },
-      {
-       "name": "page",
-       "required": false,
-       "type": "int",
-       "description": "The page of results to return if more than 200 records are found."
-      }
-     ],
-     "filters": [
-      {
-       "name": "first_name",
-       "type": "text"
-      },
-      {
-       "name": "last_name",
-       "type": "text"
-      },
-      {
-       "name": "violation",
-       "type": "object id"
-      },
-      {
-       "name": "description",
-       "type": "text"
-      },
-      {
-       "name": "has_fee",
-       "type": "bool"
-      },
-      {
-       "name": "fee_name",
-       "type": "text"
-      },
-      {
-       "name": "fee_amount",
-       "type": "decimal"
-      },
-      {
-       "name": "added_on",
-       "type": "date"
-      },
-      {
-       "name": "tag",
-       "type": "tag"
-      },
-      {
-       "name": "custom_field",
-       "type": "custom"
-      }
-     ],
-     "action_params": [],
-     "expands": [
-      "violation"
-     ],
      "permissions": {
       "note": "One of the following roles is required to call this method:",
       "roles": [
@@ -38913,23 +39375,6 @@
       "note": "Any role may call this method.",
       "roles": []
      }
-    },
-    {
-     "name": "show example webhook payload",
-     "method": "GET",
-     "path": "/webhooks/examples/:trigger_abbrv",
-     "description": "This method returns an example JSON payload of a Webhook coming from Populi triggered by a specified type of Automation. Replace :trigger_abbrv in the URL with the trigger type abbreviation (e.g. person_created).",
-     "params": [],
-     "filters": [],
-     "action_params": [],
-     "expands": [],
-     "permissions": {
-      "note": "One of the following roles is required to call this method:",
-      "roles": [
-       "Staff",
-       "Development"
-      ]
-     }
     }
    ]
   },
@@ -39592,7 +40037,7 @@
   {
    "event": "transcript_request_created",
    "title": "Transcript Request Created",
-   "description": "Whenever a new transcript request is made\n\n*Example payload currently unavailable for this event.*"
+   "description": "Whenever a new transcript request is made"
   },
   {
    "event": "transfer_credit_approved",

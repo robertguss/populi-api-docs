@@ -311,9 +311,6 @@
                   <li>
                     <a href="#timezone" class="toc-h2 toc-link" data-title="timezone">timezone</a>
                   </li>
-                  <li>
-                    <a href="#show-example-webhook-payload" class="toc-h2 toc-link" data-title="show example webhook payload">show example webhook payload</a>
-                  </li>
               </ul>
           </li>
       </ul>
@@ -638,6 +635,11 @@
               </a>
             </li>
             <li>
+              <a href="digitalresources.html" class="toc-h1 toc-link" data-title="DigitalResource">
+                DigitalResource
+              </a>
+            </li>
+            <li>
               <a href="discipline.html" class="toc-h1 toc-link" data-title="Discipline">
                 Discipline
               </a>
@@ -795,6 +797,16 @@
             <li>
               <a href="libraryresources.html" class="toc-h1 toc-link" data-title="LibraryResource">
                 LibraryResource
+              </a>
+            </li>
+            <li>
+              <a href="libraryresourcecopies.html" class="toc-h1 toc-link" data-title="LibraryResourceCopy">
+                LibraryResourceCopy
+              </a>
+            </li>
+            <li>
+              <a href="libraryresourcetypes.html" class="toc-h1 toc-link" data-title="LibraryResourceType">
+                LibraryResourceType
               </a>
             </li>
             <li>
@@ -1222,7 +1234,7 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timezone"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America</span><span class="se">\/</span><span class="s2">Los_Angeles"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"now"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-09-30T16:36:45+00:00"</span><span class="w">
+    </span><span class="nl">"now"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-05T17:15:35+00:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Get the timezone of your school. All dates and times returned by the API will be in this timezone. Includes a representation of the current time.</p>
@@ -1232,24 +1244,6 @@
 <p>None</p>
 <h3 id='permissions'>Permissions</h3>
 <p>Any role may call this method.</p>
-<h2 id='show-example-webhook-payload'>show example webhook payload</h2>
-<blockquote>
-<p>Example response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
-</span></code></pre></div>
-<p>This method returns an example JSON payload of a Webhook coming from Populi triggered by a specified type of Automation. Replace :trigger_abbrv in the URL with the trigger type abbreviation (e.g. person_created).</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET /webhooks/examples/:trigger_abbrv</code></p>
-<h3 id='parameters-2'>Parameters</h3>
-<p>No additional parameters are needed beyond the ID of the object being requested that appears in the URL.</p>
-<h3 id='permissions-2'>Permissions</h3>
-<p>One of the following roles is required to call this method:</p>
-
-<ul>
-<li>Staff</li>
-<li>Development</li>
-</ul>
 
       </div>
       <div class="dark-box">

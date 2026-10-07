@@ -315,9 +315,6 @@
                     <a href="#index" class="toc-h2 toc-link" data-title="index">index</a>
                   </li>
                   <li>
-                    <a href="#index-campus-life" class="toc-h2 toc-link" data-title="index (campus life)">index (campus life)</a>
-                  </li>
-                  <li>
                     <a href="#show" class="toc-h2 toc-link" data-title="show">show</a>
                   </li>
                   <li>
@@ -647,6 +644,11 @@
               </a>
             </li>
             <li>
+              <a href="digitalresources.html" class="toc-h1 toc-link" data-title="DigitalResource">
+                DigitalResource
+              </a>
+            </li>
+            <li>
               <a href="discipline.html" class="toc-h1 toc-link" data-title="Discipline">
                 Discipline
               </a>
@@ -804,6 +806,16 @@
             <li>
               <a href="libraryresources.html" class="toc-h1 toc-link" data-title="LibraryResource">
                 LibraryResource
+              </a>
+            </li>
+            <li>
+              <a href="libraryresourcecopies.html" class="toc-h1 toc-link" data-title="LibraryResourceCopy">
+                LibraryResourceCopy
+              </a>
+            </li>
+            <li>
+              <a href="libraryresourcetypes.html" class="toc-h1 toc-link" data-title="LibraryResourceType">
+                LibraryResourceType
               </a>
             </li>
             <li>
@@ -1396,180 +1408,6 @@
 <li>Financial Admin</li>
 <li>Campus Life</li>
 </ul>
-<h2 id='index-campus-life'>index (campus life)</h2>
-<blockquote>
-<p>Example code to call this method:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yourschool.populiweb.com/api2/campuslife/rooms"</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
-<span class="nt">-H</span> <span class="s2">"Authorization: Bearer YOUR_POPULI_API_KEY"</span> <span class="se">\ </span>
-<span class="nt">-X</span> GET
-<span class="nt">-d</span> <span class="s1">'{
-    "academic_term_id": 8,
-    "filter": {"0":{"logic":"ALL","fields":[{"name":"room_plan","value":1,"positive":1}]}}
-}'</span> <span class="se">\ </span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
-<span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
- <span class="s1">'https://yourschool.populiweb.com/api2/campuslife/rooms'</span><span class="p">,</span>
- <span class="ss">headers: </span><span class="p">{</span>
-  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_POPULI_API_KEY'</span>
- <span class="p">},</span>
- <span class="ss">body: </span><span class="p">{</span>
-  <span class="ss">:academic_term_id</span> <span class="o">=&gt;</span> <span class="mi">8</span>
- <span class="p">}.</span><span class="nf">to_json</span>
-<span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
- <span class="s">'https://yourschool.populiweb.com/api2/campuslife/rooms'</span><span class="p">,</span>
- <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer YOUR_POPULI_API_KEY'</span>
- <span class="p">},</span>
- <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'academic_term_id'</span><span class="p">:</span> <span class="mi">8</span>
- <span class="p">}</span>
-<span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
-</code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">RestSharp</span><span class="p">;</span>
-<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">();</span>
-<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="k">new</span> <span class="nf">Uri</span><span class="p">(</span><span class="s">"https://yourschool.populiweb.com/api2/campuslife/rooms"</span><span class="p">),</span> <span class="n">Method</span><span class="p">.</span><span class="n">Get</span><span class="p">);</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer YOUR_POPULI_API_KEY"</span><span class="p">);</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">AddJsonBody</span><span class="p">(</span><span class="k">new</span> <span class="p">{</span>
-  <span class="n">academic_term_id</span> <span class="p">=</span> <span class="m">8</span>
-<span class="p">});</span>
-<span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
-<span class="kt">var</span> <span class="n">response_object</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
-<span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">response_object</span><span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://yourschool.populiweb.com/api2/campuslife/rooms'</span><span class="p">);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Authorization: Bearer YOUR_POPULI_API_KEY'</span><span class="p">]);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_CUSTOMREQUEST</span><span class="p">,</span> <span class="s1">'GET'</span><span class="p">);</span>
-<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nb">json_encode</span><span class="p">([</span>
-  <span class="s1">'academic_term_id'</span> <span class="o">=&gt;</span> <span class="mi">8</span>
-<span class="p">]));</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-<span class="nv">$response_decoded</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
-<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response_decoded</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>Example response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"results_per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"room"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"building_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anselm House Anselm"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"floor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B0"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"capacity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"default_room_plan_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"retired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"retired_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"report_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"building_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Building"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"capacity_used"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"room_plan_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"occupants"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"row_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Retrieves all Room objects that match given filter conditions.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET /campuslife/rooms</code></p>
-<h3 id='parameters-2'>Parameters</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Required</th>
-<th>Data Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>academic_term_id</td>
-<td>Yes</td>
-<td>int</td>
-<td></td>
-</tr>
-<tr>
-<td>filter</td>
-<td>No</td>
-<td>mixed</td>
-<td>See available filter conditions</td>
-</tr>
-<tr>
-<td>page</td>
-<td>No</td>
-<td>int</td>
-<td>The page of results to return if more than 200 records are found.</td>
-</tr>
-</tbody></table>
-<h3 id='filter-condition-parameters'>Filter Condition Parameters</h3>
-<p>These conditions can be used to narrow the results returned.</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>room_plan</td>
-<td>object id</td>
-</tr>
-<tr>
-<td>building</td>
-<td>object id</td>
-</tr>
-<tr>
-<td>room</td>
-<td>text</td>
-</tr>
-<tr>
-<td>capacity</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>used</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>available</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>occupants</td>
-<td>text</td>
-</tr>
-</tbody></table>
-<h3 id='permissions-2'>Permissions</h3>
-<p>One of the following roles is required to call this method:</p>
-
-<ul>
-<li>Academic Admin</li>
-<li>Registrar</li>
-<li>Financial Admin</li>
-<li>Campus Life</li>
-</ul>
 <h2 id='show'>show</h2>
 <blockquote>
 <p>Example code to call this method:</p>
@@ -1631,11 +1469,11 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Retrieves a specific Room object.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /rooms/(room)</code></p>
-<h3 id='parameters-3'>Parameters</h3>
+<h3 id='parameters-2'>Parameters</h3>
 <p>No additional parameters are needed beyond the ID of the object being requested that appears in the URL.</p>
-<h3 id='permissions-3'>Permissions</h3>
+<h3 id='permissions-2'>Permissions</h3>
 <p>One of the following roles is required to call this method:</p>
 
 <ul>
@@ -1704,9 +1542,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This method returns a week&#39;s worth of room schedule data, equivalent to the Campus Life -&gt; Facilities Schedule.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /rooms/schedule</code></p>
-<h3 id='parameters-4'>Parameters</h3>
+<h3 id='parameters-3'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -1740,7 +1578,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='permissions-4'>Permissions</h3>
+<h3 id='permissions-3'>Permissions</h3>
 <p>One of the following roles is required to call this method:</p>
 
 <ul>
