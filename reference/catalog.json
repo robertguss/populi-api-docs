@@ -1,10 +1,10 @@
 {
  "source": "https://populi.co/api/",
- "docs_updated_on": "2026-10-05 17:15:39 PST",
- "fetched_at": "2026-10-07T13:49:00+00:00",
+ "docs_updated_on": "2026-10-08 16:30:25 PST",
+ "fetched_at": "2026-10-12T13:21:27+00:00",
  "counts": {
   "models": 180,
-  "endpoints": 696,
+  "endpoints": 697,
   "webhook_events": 97
  },
  "models": [
@@ -6059,6 +6059,33 @@
      "permissions": {
       "note": "One of the following roles is required to call this method:",
       "roles": [
+       "Admissions Admin",
+       "Admissions",
+       "Academic Admin",
+       "Registrar"
+      ]
+     }
+    },
+    {
+     "name": "export_pdf",
+     "method": "GET",
+     "path": "/applications/(application)/export_pdf",
+     "description": "Exports the application as a PDF. To use a custom layout, provide a print_layout_id for an application print layout. If omitted, the default application print layout is used.",
+     "params": [
+      {
+       "name": "print_layout_id",
+       "required": false,
+       "type": "int",
+       "description": ""
+      }
+     ],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "One of the following roles is required to call this method:\n\nThis is a heavy call. For performance reasons, only one heavy call may be made at a time.",
+      "roles": [
+       "Admissions Auditor",
        "Admissions Admin",
        "Admissions",
        "Academic Admin",
@@ -19052,6 +19079,10 @@
       {
        "name": "student_campus",
        "type": "object id"
+      },
+      {
+       "name": "invoice_status",
+       "type": "enum"
       }
      ],
      "action_params": [],
@@ -21468,6 +21499,10 @@
       {
        "name": "custom_field",
        "type": "custom"
+      },
+      {
+       "name": "payment_applied_date",
+       "type": "date"
       }
      ],
      "action_params": [],

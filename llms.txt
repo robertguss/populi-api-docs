@@ -1,6 +1,6 @@
 # Populi API2 reference
 
-> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-05 17:15:39 PST. 180 models, 696 endpoints.
+> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-08 16:30:25 PST. 180 models, 697 endpoints.
 
 Start with the overview for how every request works. To find an endpoint, search `reference/endpoints.md` (one line per endpoint), then open its model page for fields, parameters, filter conditions, expands, permissions, and examples.
 
@@ -32,7 +32,7 @@ Start with the overview for how every request works. To find an endpoint, search
 - [AidYearSchedule](reference/models/aidyearschedules.md): 2 endpoints: `/aidyears/(aidyear)/schedules`, `/aidyears/(aidyear)/schedules/(aidyearschedule)`
 - [Appeal](reference/models/appeals.md): 2 endpoints: `/appeals`, `/appeals/(appeal)`
 - [AppealMedium](reference/models/appealmedia.md): 2 endpoints: `/appealmedia`, `/appealmedia/(appealmedium)`
-- [Application](reference/models/applications.md): 11 endpoints: `/applications`, `/applications/(application)`, `/people/(person)/applications`, …
+- [Application](reference/models/applications.md): 12 endpoints: `/applications`, `/applications/(application)`, `/people/(person)/applications`, …
 - [ApplicationTemplate](reference/models/applicationtemplates.md): 2 endpoints: `/applicationtemplates`, `/applicationtemplates/(applicationtemplate)`
 - [Assignment](reference/models/courseassignments.md): 6 endpoints: `/courseofferings/(courseoffering)/assignments`, `/courseofferings/(courseoffering)/assignments/(assignment)`, `/courseofferings/(courseoffering)/assignments/(assignment)/students/(person)/rubric_scores`, …
 - [AssignmentGrade](reference/models/assignmentgrades.md): 2 endpoints: `/courseofferings/(courseoffering)/assignments/(assignment)/students/(person)/grade`, `/courseofferings/(courseoffering)/assignments/(assignment)/students/(person)/grade/update`

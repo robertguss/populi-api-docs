@@ -1,6 +1,6 @@
 # Populi API2: every endpoint
 
-> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-05 17:15:39 PST. 696 endpoints, sorted by path. Paths are relative to `https://<school>.populiweb.com/api2`; `(name)` is an id in the path.
+> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-08 16:30:25 PST. 697 endpoints, sorted by path. Paths are relative to `https://<school>.populiweb.com/api2`; `(name)` is an id in the path.
 
 | Method | Path | Action | Model | Summary |
 |---|---|---|---|---|
@@ -47,6 +47,7 @@
 | DELETE | `/applications/(application)` | delete | [Application](models/applications.md) | Deletes an existing Application object. |
 | GET | `/applications/(application)` | show | [Application](models/applications.md) | Retrieves a specific Application object. |
 | PUT | `/applications/(application)` | update | [Application](models/applications.md) | Updates an existing Application object. |
+| GET | `/applications/(application)/export_pdf` | export_pdf | [Application](models/applications.md) | Exports the application as a PDF. |
 | GET | `/applications/(application)/fields` | fields | [Application](models/applications.md) |  |
 | GET | `/applications/(application)/link_to_person` | link_to_person | [Application](models/applications.md) |  |
 | GET | `/applications/(application)/submit` | submit | [Application](models/applications.md) |  |

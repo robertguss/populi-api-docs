@@ -7,6 +7,19 @@ descriptions were reworded. Examples are not compared.
 
 <!-- entries -->
 
+## 2026-10-08 16:30:25 PST
+
+Synced 2026-10-12.
+
+### Endpoints
+
+- + `GET /applications/(application)/export_pdf` (Application export_pdf)
+
+### Filter conditions
+
+- + `GET /invoices`: filter `payment_applied_date` (date)
+- + `GET /transactions`: filter `invoice_status` (enum)
+
 ## 2026-10-05 17:15:39 PST
 
 Synced 2026-10-07.

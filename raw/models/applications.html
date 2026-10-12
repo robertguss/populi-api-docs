@@ -330,6 +330,9 @@
                     <a href="#delete" class="toc-h2 toc-link" data-title="delete">delete</a>
                   </li>
                   <li>
+                    <a href="#export_pdf" class="toc-h2 toc-link" data-title="export_pdf">export_pdf</a>
+                  </li>
+                  <li>
                     <a href="#fields" class="toc-h2 toc-link" data-title="fields">fields</a>
                   </li>
                   <li>
@@ -2160,10 +2163,10 @@
         </span><span class="nl">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="nl">"synced_from"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"import_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-06T00:15:26+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-08T23:30:13+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-06T00:15:26+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-08T23:30:13+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
     </span><span class="nl">"applicant_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:</span><span class="se">\/\/</span><span class="s2">yourschool.populiweb.com</span><span class="se">\/</span><span class="s2">router</span><span class="se">\/</span><span class="s2">admissions</span><span class="se">\/</span><span class="s2">onlineapplications</span><span class="se">\/</span><span class="s2">show</span><span class="se">\/</span><span class="s2">g64c8ee3f6da7a2293a0f77a7a697b178cc281eaf34e1c8ac6c5b784920d90c6944c03ac9ff54c31fc4b06ac3952ebc36969975080cc106f69f060ccb76abb9"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -2563,7 +2566,7 @@
     </span><span class="nl">"letter_printed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"letter_printed_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"prospect_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"staff_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-06T00:15:26+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"staff_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-08T23:30:13+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"percent_complete"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"active_questions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"localization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2704,6 +2707,82 @@
 <li>Academic Admin</li>
 <li>Registrar</li>
 </ul>
+<h2 id='export_pdf'>export_pdf</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yourschool.populiweb.com/api2/applications/(application)/export_pdf"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer YOUR_POPULI_API_KEY"</span> <span class="se">\ </span>
+<span class="nt">-X</span> GET
+<span class="nt">-d</span> <span class="s1">'{
+    "print_layout_id": "5"
+}'</span> <span class="se">\ </span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
+ <span class="s1">'https://yourschool.populiweb.com/api2/applications/(application)/export_pdf'</span><span class="p">,</span>
+ <span class="ss">headers: </span><span class="p">{</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_POPULI_API_KEY'</span>
+ <span class="p">},</span>
+<span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
+ <span class="s">'https://yourschool.populiweb.com/api2/applications/(application)/export_pdf'</span><span class="p">,</span>
+ <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer YOUR_POPULI_API_KEY'</span>
+ <span class="p">},</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">RestSharp</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">();</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="k">new</span> <span class="nf">Uri</span><span class="p">(</span><span class="s">"https://yourschool.populiweb.com/api2/applications/(application)/export_pdf"</span><span class="p">),</span> <span class="n">Method</span><span class="p">.</span><span class="n">Get</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer YOUR_POPULI_API_KEY"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response_object</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">response_object</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://yourschool.populiweb.com/api2/applications/(application)/export_pdf'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Authorization: Bearer YOUR_POPULI_API_KEY'</span><span class="p">]);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_CUSTOMREQUEST</span><span class="p">,</span> <span class="s1">'GET'</span><span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$response_decoded</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response_decoded</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
+</span></code></pre></div>
+<p>Exports the application as a PDF. To use a custom layout, provide a print_layout_id for an application print layout. If omitted, the default application print layout is used.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET /applications/(application)/export_pdf</code></p>
+<h3 id='parameters-7'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>print_layout_id</td>
+<td>No</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='permissions-7'>Permissions</h3>
+<p>One of the following roles is required to call this method:</p>
+
+<ul>
+<li>Admissions Auditor</li>
+<li>Admissions Admin</li>
+<li>Admissions</li>
+<li>Academic Admin</li>
+<li>Registrar</li>
+</ul>
+
+<p>This is a heavy call. For performance reasons, only one heavy call may be made at a time.</p>
 <h2 id='fields'>fields</h2>
 <blockquote>
 <p>Example code to call this method:</p>
@@ -2780,7 +2859,7 @@
         </span><span class="nl">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"started_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-19"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-06T00:15:26+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-08T23:30:13+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"pending_decision_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"decision_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"confirmed_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2799,7 +2878,7 @@
         </span><span class="nl">"letter_printed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"letter_printed_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"prospect_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"staff_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-06T00:15:26+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"staff_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-08T23:30:13+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"percent_complete"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nl">"active_questions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"localization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2878,11 +2957,11 @@
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET /applications/(application)/fields</code></p>
-<h3 id='parameters-7'>Parameters</h3>
+<h3 id='parameters-8'>Parameters</h3>
 <p>None</p>
-<h3 id='permissions-7'>Permissions</h3>
+<h3 id='permissions-8'>Permissions</h3>
 <p>One of the following roles is required to call this method:</p>
 
 <ul>
@@ -2973,7 +3052,7 @@
     </span><span class="nl">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"started_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-19"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-06T00:15:26+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-08T23:30:13+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pending_decision_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"decision_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"confirmed_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2992,7 +3071,7 @@
     </span><span class="nl">"letter_printed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"letter_printed_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"prospect_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"staff_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-06T00:15:26+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"staff_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-08T23:30:13+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"percent_complete"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"active_questions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"localization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3002,9 +3081,9 @@
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-8'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET /applications/(application)/link_to_person</code></p>
-<h3 id='parameters-8'>Parameters</h3>
+<h3 id='parameters-9'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -3020,7 +3099,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='permissions-8'>Permissions</h3>
+<h3 id='permissions-9'>Permissions</h3>
 <p>One of the following roles is required to call this method:</p>
 
 <ul>
@@ -3096,7 +3175,7 @@
     </span><span class="nl">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"started_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-19"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-06T00:15:26+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-08T23:30:13+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pending_decision_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"decision_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"confirmed_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3115,7 +3194,7 @@
     </span><span class="nl">"letter_printed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"letter_printed_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"prospect_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"staff_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-06T00:15:26+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"staff_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-08T23:30:13+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"percent_complete"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"active_questions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"localization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3125,11 +3204,11 @@
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-9'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET /applications/(application)/submit</code></p>
-<h3 id='parameters-9'>Parameters</h3>
+<h3 id='parameters-10'>Parameters</h3>
 <p>None</p>
-<h3 id='permissions-9'>Permissions</h3>
+<h3 id='permissions-10'>Permissions</h3>
 <p>One of the following roles is required to call this method:</p>
 
 <ul>
@@ -3205,7 +3284,7 @@
     </span><span class="nl">"campus_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"started_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-03-19"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-06T00:15:26+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"submitted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-08T23:30:13+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pending_decision_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"decision_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"confirmed_on"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3224,7 +3303,7 @@
     </span><span class="nl">"letter_printed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"letter_printed_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"prospect_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"staff_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-06T00:15:26+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"staff_activity_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-08T23:30:13+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"percent_complete"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"active_questions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"localization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3234,11 +3313,11 @@
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-10'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET /applications/(application)/unlink_person</code></p>
-<h3 id='parameters-10'>Parameters</h3>
+<h3 id='parameters-11'>Parameters</h3>
 <p>None</p>
-<h3 id='permissions-10'>Permissions</h3>
+<h3 id='permissions-11'>Permissions</h3>
 <p>One of the following roles is required to call this method:</p>
 
 <ul>
@@ -3458,9 +3537,9 @@
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-11'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET /onlinereferences/(onlinereference)</code></p>
-<h3 id='parameters-11'>Parameters</h3>
+<h3 id='parameters-12'>Parameters</h3>
 <p>None</p>
 <h3 id='expandable-properties-3'>Expandable Properties</h3>
 <ul>
@@ -3468,7 +3547,7 @@
 <li>form_version</li>
 <li>answers</li>
 </ul>
-<h3 id='permissions-11'>Permissions</h3>
+<h3 id='permissions-12'>Permissions</h3>
 <p>One of the following roles is required to call this method:</p>
 
 <ul>
