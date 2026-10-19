@@ -1,6 +1,6 @@
 # Populi API2: every endpoint
 
-> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-08 16:30:25 PST. 697 endpoints, sorted by path. Paths are relative to `https://<school>.populiweb.com/api2`; `(name)` is an id in the path.
+> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-14 16:35:18 PST. 697 endpoints, sorted by path. Paths are relative to `https://<school>.populiweb.com/api2`; `(name)` is an id in the path.
 
 | Method | Path | Action | Model | Summary |
 |---|---|---|---|---|
