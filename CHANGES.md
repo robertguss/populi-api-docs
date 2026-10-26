@@ -7,6 +7,88 @@ descriptions were reworded. Examples are not compared.
 
 <!-- entries -->
 
+## 2026-10-23 17:39:26 PST
+
+Synced 2026-10-26.
+
+### Endpoints
+
+- + `GET /people/(person)/financial_history` (Student financial_history)
+- − `GET /lmssync/run` (ChangeLog Run LMS sync)
+
+### Object fields
+
+- + AcademicTermType.`added_at` (datetime)
+- + AcademicTermType.`added_by_id` (int)
+- + AcademicTermType.`api_version` (--)
+- + AcademicTermType.`default_add_drop_days` (bool, required)
+- + AcademicTermType.`default_can_overlap_dates` (bool, required)
+- + AcademicTermType.`default_end_day` (bool, required)
+- + AcademicTermType.`default_end_month` (bool, required)
+- + AcademicTermType.`default_end_weekday` (bool, required)
+- + AcademicTermType.`default_end_year` (enum (start, end), required)
+- + AcademicTermType.`default_start_day` (bool, required)
+- + AcademicTermType.`default_start_month` (bool, required)
+- + AcademicTermType.`default_start_weekday` (bool, required)
+- + AcademicTermType.`default_start_year` (enum (start, end), required)
+- + AcademicTermType.`display_name` (text (128))
+- + AcademicTermType.`id` (int, required)
+- + AcademicTermType.`is_entrance_term` (bool, required)
+- + AcademicTermType.`is_for_billing` (bool, required)
+- + AcademicTermType.`is_for_campus_life` (bool, required)
+- + AcademicTermType.`is_for_transcript` (bool)
+- + AcademicTermType.`level` (enum (single, super, sub), required)
+- + AcademicTermType.`name` (text (128), required)
+- + AcademicTermType.`parent_academic_term_type_id` (int)
+- + AcademicTermType.`retired_at` (datetime)
+- + AcademicTermType.`retired_by_id` (int)
+- + AcademicTermType.`sandbox` (bool)
+- + AcademicTermType.`status` (enum (active, retired, deleted))
+- + AcademicTermType.`updated_at` (datetime)
+- + AcademicTermType.`updated_by_id` (int)
+- + CanadianDonationReceipt.`donor_addressee` (text (500))
+- + CanadianDonationReceipt.`donor_salutation` (text (500))
+- + CanadianDonationReceipt.`donor_spouse` (text (500))
+- + CourseGroupRequirement.`count_unused_courses` (bool, required)
+- + CourseGroupRequirement.`count_unused_transfer_courses` (bool, required)
+- + DegreeLevel.`ipeds_level` (text (3))
+- + Note.`author_id` (int, required)
+- + OrganizationType.`allow_transfer_credits` (bool, required)
+- + PendingCharge.`import_id` (int)
+- ~ Enrollment.`enrolled_by_type` type 'enum (registrar, student, advisor, waiting_list, system)' → 'enum (registrar, student, advisor, waiting_list, system, course_market)'
+
+### Parameters
+
+- ~ `GET /coursegroups/(coursegroup)`: parameter `academic_year_id` type '' → 'int'
+- + `POST /organizations/(organization)/notes`: parameter `author_id` (Person id)
+- + `POST /people/(person)/notes`: parameter `author_id` (Person id)
+
+### Filter conditions
+
+- + `GET /academicterms/(academicterm)/enrollments`: filter `enrolled_by_type` (enum)
+- + `GET /enrollments`: filter `enrolled_by_type` (enum)
+
+### Descriptions
+
+- ~ `GET /people/(person)/export_transcript`
+
+### Webhook events
+
+- + `advisor_removed_from_student` (Advisor Removed From Student)
+- + `campus_store_order_processed` (Campus Store Order Processed)
+- + `campus_store_order_status_updated` (Campus Store Order Status Updated)
+- + `campus_store_order_tracking_added` (Campus Store Order Tracking Added)
+- + `form_response_linked_to_person` (Form Response Linked to Person)
+- + `lock_added_to_person` (Lock Added To Person)
+- + `lock_removed_from_person` (Lock Removed From Person)
+- + `meal_plan_student_added` (Student Meal Plan Added)
+- + `meal_plan_student_removed` (Student Meal Plan Removed)
+- + `meal_plan_student_updated` (Student Meal Plan Updated)
+- + `room_plan_student_added` (Student Room Plan Added)
+- + `room_plan_student_removed` (Student Room Plan Removed)
+- + `room_plan_student_updated` (Student Room Plan Updated)
+- − `bookstore_order_processed`
+
 ## 2026-10-14 16:35:18 PST
 
 Synced 2026-10-19.

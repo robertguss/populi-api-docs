@@ -1,6 +1,6 @@
 # Populi API2 reference
 
-> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-14 16:35:18 PST. 180 models, 697 endpoints.
+> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-23 17:39:26 PST. 180 models, 697 endpoints.
 
 Start with the overview for how every request works. To find an endpoint, search `reference/endpoints.md` (one line per endpoint), then open its model page for fields, parameters, filter conditions, expands, permissions, and examples.
 
@@ -52,7 +52,7 @@ Start with the overview for how every request works. To find an endpoint, search
 - [Campus](reference/models/campuses.md): 2 endpoints: `/campuses`, `/campuses/(campus)`
 - [CanadianDonationReceipt](reference/models/canadiandonationreceipts.md): 1 endpoint: `/canadiandonationreceipts/(canadiandonationreceipt)`
 - [CatalogCourse](reference/models/catalogcourses.md): 2 endpoints: `/catalogcourses`, `/catalogcourses/(catalogcourse)`
-- [ChangeLog](reference/models/account.md): 3 endpoints: `/logins`, `/changelog`, `/lmssync/run`
+- [ChangeLog](reference/models/account.md): 2 endpoints: `/logins`, `/changelog`
 - [Check](reference/models/checks.md): 2 endpoints: `/checks`, `/checks/(check)`
 - [Citizenship](reference/models/personcitizenships.md): 3 endpoints: `/people/(person)/citizenships`
 - [COACategory](reference/models/coacategories.md): 2 endpoints: `/coacategories`, `/coacategories/(coacategory)`
@@ -166,7 +166,7 @@ Start with the overview for how every request works. To find an endpoint, search
 - [StandardizedTest](reference/models/standardizedtests.md): 2 endpoints: `/standardizedtests`, `/standardizedtests/(standardizedtest)`
 - [StandardizedTestScore](reference/models/standardizedtestscores.md): 6 endpoints: `/standardizedtestscores`, `/people/(person)/standardizedtestscores`, `/people/(person)/standardizedtestscores/(standardizedtestscore)`, …
 - [StandardizedTestSectionScore](reference/models/standardizedtestsectionscores.md): 5 endpoints: `/people/(person)/standardizedtestscores/(standardizedtestscore)/sections`, `/people/(person)/standardizedtestscores/(standardizedtestscore)/sections/(standardizedtestsectionscore)`, …
-- [Student](reference/models/students.md): 13 endpoints: `/personbalances`, `/people/(person)/student`, `/people/(person)/balances`, …
+- [Student](reference/models/students.md): 14 endpoints: `/personbalances`, `/people/(person)/student`, `/people/(person)/balances`, …
 - [StudentAdvisor](reference/models/studentadvisors.md): 3 endpoints: `/people/(person)/advisors`, `/people/(person)/advisors/(studentadvisor)`
 - [StudentCampus](reference/models/studentcampuses.md): 4 endpoints: `/people/(person)/campuses`, `/people/(person)/campuses/(studentcampus)`, …
 - [StudentConsequence](reference/models/studentconsequences.md): 2 endpoints: `/people/(person)/consequences`, `/people/(person)/consequences/(studentconsequence)`
@@ -191,5 +191,5 @@ Start with the overview for how every request works. To find an endpoint, search
 - [User](reference/models/users.md): 9 endpoints: `/users`, `/users/(user)`, `/users/deleted`, …
 - [Utilities](reference/models/utilities.md): 1 endpoint: `/timezone`
 - [Violation](reference/models/violations.md): 2 endpoints: `/violations`, `/violations/(violation)`
-- [Webhooks](reference/models/webhooks.md): 97 webhook events and their payloads
+- [Webhooks](reference/models/webhooks.md): 109 webhook events and their payloads
 - [Website](reference/models/websites.md): 2 endpoints: `/people/(person)/websites`, `/organizations/(organization)/websites`

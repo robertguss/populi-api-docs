@@ -1248,6 +1248,7 @@
     </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"They said on the phone they are deferring their enrollment."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-30T00:04:04+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1285,6 +1286,11 @@
 <td>hidden</td>
 <td>No</td>
 <td>bool</td>
+</tr>
+<tr>
+<td>author_id</td>
+<td>Yes</td>
+<td>int</td>
 </tr>
 <tr>
 <td>added_at</td>
@@ -1368,6 +1374,7 @@
             </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Has 5 internship slots open for this summer."</span><span class="p">,</span><span class="w">
             </span><span class="nl">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"author_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-30T00:04:04+00:00"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -1447,6 +1454,7 @@
             </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
             </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Called and set up a school tour."</span><span class="p">,</span><span class="w">
             </span><span class="nl">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"author_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-30T00:04:04+00:00"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -1476,7 +1484,8 @@
 <span class="nt">-d</span> <span class="s1">'{
     "note": "blah blah",
     "is_private": "1",
-    "visibility_role_ids": "[7, 13, 14]"
+    "visibility_role_ids": "[7, 13, 14]",
+    "author_id": "22"
 }'</span> <span class="se">\ </span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span>
@@ -1568,6 +1577,12 @@
 <td>bool</td>
 <td></td>
 </tr>
+<tr>
+<td>author_id</td>
+<td>No</td>
+<td>Person id</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <p>You can optionally include a file upload with this route. Use a form post parameter called &quot;file&quot;. Read about <a href="#request-and-response-format">request and response format</a> to see how parameters need to be specified differently when there is a file upload.</p>
@@ -1582,7 +1597,8 @@
 <span class="nt">-d</span> <span class="s1">'{
     "note": "blah blah",
     "is_private": "1",
-    "visibility_role_ids": "[7, 13, 14]"
+    "visibility_role_ids": "[7, 13, 14]",
+    "author_id": "22"
 }'</span> <span class="se">\ </span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span>
@@ -1639,7 +1655,8 @@
     </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
     </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blah blah"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-14T23:35:01+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"author_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-24T00:39:09+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
@@ -1679,6 +1696,12 @@
 <td>is_flagged</td>
 <td>No</td>
 <td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td>author_id</td>
+<td>No</td>
+<td>Person id</td>
 <td></td>
 </tr>
 </tbody></table>

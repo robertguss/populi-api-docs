@@ -1229,23 +1229,273 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='academictermtype'>AcademicTermType</h1><h2 id='the-academictermtype-object'>The AcademicTermType object</h2>
-<p>See example response for details.</p>
+<blockquote>
+<p>The AcademicTermType object looks like this in JSON:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"academic_term_type"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quarter"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{START_YEAR} Quarter"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_start_month"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_start_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_start_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_start_weekday"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_end_month"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_end_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_end_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_end_weekday"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_can_overlap_dates"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_add_drop_days"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"parent_academic_term_type_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_for_transcript"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_for_billing"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_for_campus_life"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_entrance_term"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"retired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"retired_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Data Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Yes</td>
+<td>int</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Yes</td>
+<td>text (128)</td>
+</tr>
+<tr>
+<td>display_name</td>
+<td>No</td>
+<td>text (128)</td>
+</tr>
+<tr>
+<td>default_start_month</td>
+<td>Yes</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>default_start_day</td>
+<td>Yes</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>default_start_year</td>
+<td>Yes</td>
+<td>enum (start, end)</td>
+</tr>
+<tr>
+<td>default_start_weekday</td>
+<td>Yes</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>default_end_month</td>
+<td>Yes</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>default_end_day</td>
+<td>Yes</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>default_end_year</td>
+<td>Yes</td>
+<td>enum (start, end)</td>
+</tr>
+<tr>
+<td>default_end_weekday</td>
+<td>Yes</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>default_can_overlap_dates</td>
+<td>Yes</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>default_add_drop_days</td>
+<td>Yes</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>level</td>
+<td>Yes</td>
+<td>enum (single, super, sub)</td>
+</tr>
+<tr>
+<td>parent_academic_term_type_id</td>
+<td>No</td>
+<td>int</td>
+</tr>
+<tr>
+<td>is_for_transcript</td>
+<td>No</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>is_for_billing</td>
+<td>Yes</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>is_for_campus_life</td>
+<td>Yes</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>is_entrance_term</td>
+<td>Yes</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>status</td>
+<td>No</td>
+<td>enum (active, retired, deleted)</td>
+</tr>
+<tr>
+<td>retired_at</td>
+<td>No</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>retired_by_id</td>
+<td>No</td>
+<td>int</td>
+</tr>
+<tr>
+<td>added_at</td>
+<td>No</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>added_by_id</td>
+<td>No</td>
+<td>int</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>No</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>updated_by_id</td>
+<td>No</td>
+<td>int</td>
+</tr>
+<tr>
+<td>sandbox</td>
+<td>No</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>api_version</td>
+<td>No</td>
+<td>--</td>
+</tr>
+</tbody></table>
 <h2 id='index'>index</h2>
 <blockquote>
 <p>Example code to call this method:</p>
-
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://yourschool.populiweb.com/api2/academictermtypes"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>
+<span class="nt">-H</span> <span class="s2">"Authorization: Bearer YOUR_POPULI_API_KEY"</span> <span class="se">\ </span>
+<span class="nt">-X</span> GET
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
+ <span class="s1">'https://yourschool.populiweb.com/api2/academictermtypes'</span><span class="p">,</span>
+ <span class="ss">headers: </span><span class="p">{</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_POPULI_API_KEY'</span>
+ <span class="p">},</span>
+<span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
+ <span class="s">'https://yourschool.populiweb.com/api2/academictermtypes'</span><span class="p">,</span>
+ <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer YOUR_POPULI_API_KEY'</span>
+ <span class="p">},</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div><div class="highlight"><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">RestSharp</span><span class="p">;</span>
+<span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">();</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="k">new</span> <span class="nf">Uri</span><span class="p">(</span><span class="s">"https://yourschool.populiweb.com/api2/academictermtypes"</span><span class="p">),</span> <span class="n">Method</span><span class="p">.</span><span class="n">Get</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer YOUR_POPULI_API_KEY"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">response_object</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">response_object</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="s1">'https://yourschool.populiweb.com/api2/academictermtypes'</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Authorization: Bearer YOUR_POPULI_API_KEY'</span><span class="p">]);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_CUSTOMREQUEST</span><span class="p">,</span> <span class="s1">'GET'</span><span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$response_decoded</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$response_decoded</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
 <p>Example response:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="nl">"results_per_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"academic_term_type"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Quarter"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{START_YEAR} Quarter"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"default_start_month"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"default_start_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"default_start_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"default_start_weekday"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"default_end_month"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"default_end_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"default_end_year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"default_end_weekday"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"default_can_overlap_dates"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"default_add_drop_days"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"parent_academic_term_type_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_for_transcript"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_for_billing"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_for_campus_life"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_entrance_term"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"retired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"retired_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
 </span><span class="p">}</span><span class="w">

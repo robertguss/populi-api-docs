@@ -1240,9 +1240,10 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"degree_level"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doctoral Degree - Professional Practice"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"abbrv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOCTORAL_PROFESSIONAL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High School Diploma"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"abbrv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HIGH_SCHOOL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ipeds_level"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1268,6 +1269,11 @@
 <td>abbrv</td>
 <td>No</td>
 <td>text (50)</td>
+</tr>
+<tr>
+<td>ipeds_level</td>
+<td>No</td>
+<td>text (3)</td>
 </tr>
 <tr>
 <td>sandbox</td>
@@ -1326,8 +1332,8 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
     </span><span class="nl">"results_per_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1336,9 +1342,10 @@
     </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"degree_level"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doctoral Degree - Professional Practice"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"abbrv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOCTORAL_PROFESSIONAL"</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Postsecondary Award"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"abbrv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POSTSECONDARY_1A"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ipeds_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1402,9 +1409,10 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"degree_level"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doctoral Degree - Professional Practice"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"abbrv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOCTORAL_PROFESSIONAL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High School Diploma"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"abbrv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HIGH_SCHOOL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ipeds_level"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
 </span><span class="p">}</span><span class="w">

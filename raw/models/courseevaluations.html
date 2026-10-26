@@ -1465,7 +1465,7 @@
 <span class="nt">-H</span> <span class="s2">"Authorization: Bearer YOUR_POPULI_API_KEY"</span> <span class="se">\ </span>
 <span class="nt">-X</span> GET
 <span class="nt">-d</span> <span class="s1">'{
-    "academic_term_id": 8
+    "academic_term_id": 3
 }'</span> <span class="se">\ </span>
 </code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
@@ -1474,7 +1474,7 @@
   <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_POPULI_API_KEY'</span>
  <span class="p">},</span>
  <span class="ss">body: </span><span class="p">{</span>
-  <span class="ss">:academic_term_id</span> <span class="o">=&gt;</span> <span class="mi">8</span>
+  <span class="ss">:academic_term_id</span> <span class="o">=&gt;</span> <span class="mi">3</span>
  <span class="p">}.</span><span class="nf">to_json</span>
 <span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span>
@@ -1485,7 +1485,7 @@
   <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer YOUR_POPULI_API_KEY'</span>
  <span class="p">},</span>
  <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-  <span class="s">'academic_term_id'</span><span class="p">:</span> <span class="mi">8</span>
+  <span class="s">'academic_term_id'</span><span class="p">:</span> <span class="mi">3</span>
  <span class="p">}</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
@@ -1495,7 +1495,7 @@
 <span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="k">new</span> <span class="nf">Uri</span><span class="p">(</span><span class="s">"https://yourschool.populiweb.com/api2/courseevaluations/(courseevaluation)/answers"</span><span class="p">),</span> <span class="n">Method</span><span class="p">.</span><span class="n">Get</span><span class="p">);</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer YOUR_POPULI_API_KEY"</span><span class="p">);</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">AddJsonBody</span><span class="p">(</span><span class="k">new</span> <span class="p">{</span>
-  <span class="n">academic_term_id</span> <span class="p">=</span> <span class="m">8</span>
+  <span class="n">academic_term_id</span> <span class="p">=</span> <span class="m">3</span>
 <span class="p">});</span>
 <span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
 <span class="kt">var</span> <span class="n">response_object</span> <span class="p">=</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">Content</span><span class="p">);</span>
@@ -1506,7 +1506,7 @@
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_CUSTOMREQUEST</span><span class="p">,</span> <span class="s1">'GET'</span><span class="p">);</span>
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="no">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nb">json_encode</span><span class="p">([</span>
-  <span class="s1">'academic_term_id'</span> <span class="o">=&gt;</span> <span class="mi">8</span>
+  <span class="s1">'academic_term_id'</span> <span class="o">=&gt;</span> <span class="mi">3</span>
 <span class="p">]));</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 <span class="nv">$response_decoded</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
@@ -1517,14 +1517,33 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">58</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="mi">58</span><span class="p">,</span><span class="w">
     </span><span class="nl">"results_per_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"course_evaluation_question_answer"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"course_offering_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22524</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"course_evaluation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"course_evaluation_question_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"faculty_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"course_evaluation_question_statement_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"text_value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"integer_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"local_answer_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Likert question 1:"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sub_question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Optional statement"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"good"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-05T22:58:37+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-10-05T15:59:58+00:00"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
 </span><span class="p">}</span><span class="w">

@@ -1,6 +1,6 @@
 # Populi API2: every endpoint
 
-> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-14 16:35:18 PST. 697 endpoints, sorted by path. Paths are relative to `https://<school>.populiweb.com/api2`; `(name)` is an id in the path.
+> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-23 17:39:26 PST. 697 endpoints, sorted by path. Paths are relative to `https://<school>.populiweb.com/api2`; `(name)` is an id in the path.
 
 | Method | Path | Action | Model | Summary |
 |---|---|---|---|---|
@@ -299,7 +299,6 @@
 | POST | `/libraryresources/(libraryresource)/update_image` | update_image | [LibraryResource](models/libraryresources.md) | Upload an image file to use as the resource's image. |
 | GET | `/libraryresources/fields` | library_fields | [LibraryResource](models/libraryresources.md) |  |
 | GET | `/libraryresourcetypes` | index | [LibraryResourceType](models/libraryresourcetypes.md) | Retrieves all LibraryResourceType objects. |
-| GET | `/lmssync/run` | Run LMS sync | [ChangeLog](models/account.md) | Begin a sync operation between Populi and an outside LMS (e.g. |
 | GET | `/localizations` | index | [Localization](models/localizations.md) | Retrieves all Localization objects. |
 | GET | `/localizations/(localization)` | show | [Localization](models/localizations.md) | Retrieves a specific Localization object. |
 | GET | `/lockareas` | index | [LockArea](models/lockareas.md) | Retrieves all LockArea objects. |
@@ -490,7 +489,8 @@
 | DELETE | `/people/(person)/enrollments/(enrollment)` | delete | [Enrollment](models/coursestudents.md) | Deletes an existing Enrollment object. |
 | GET | `/people/(person)/enrollments/(enrollment)` | show (person) | [Enrollment](models/coursestudents.md) | Retrieves a specific Enrollment object. |
 | PUT | `/people/(person)/enrollments/(enrollment)` | update | [Enrollment](models/coursestudents.md) | Updates an existing Enrollment object. |
-| GET | `/people/(person)/export_transcript` | export_transcript | [Student](models/students.md) | To generate using the built-in PDF layout, set print_layout_id to PDF. |
+| GET | `/people/(person)/export_transcript` | export_transcript | [Student](models/students.md) | To use the default layout, omit print_layout_id. |
+| GET | `/people/(person)/financial_history` | financial_history | [Student](models/students.md) |  |
 | GET | `/people/(person)/flags` | index | [StudentFlag](models/studentflags.md) | Retrieves all StudentFlag objects tied to a specific Person. |
 | GET | `/people/(person)/flags/(studentflag)` | show | [StudentFlag](models/studentflags.md) | Retrieves a specific StudentFlag object. |
 | GET | `/people/(person)/gradereport` | export_grade_report | [Student](models/students.md) |  |

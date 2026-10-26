@@ -1,11 +1,11 @@
 {
  "source": "https://populi.co/api/",
- "docs_updated_on": "2026-10-14 16:35:18 PST",
- "fetched_at": "2026-10-19T18:44:20+00:00",
+ "docs_updated_on": "2026-10-23 17:39:26 PST",
+ "fetched_at": "2026-10-26T18:42:13+00:00",
  "counts": {
   "models": 180,
   "endpoints": 697,
-  "webhook_events": 97
+  "webhook_events": 109
  },
  "models": [
   {
@@ -689,6 +689,10 @@
        "type": "object_id"
       },
       {
+       "name": "enrolled_by_type",
+       "type": "enum"
+      },
+      {
        "name": "enrollment_date",
        "type": "date"
       },
@@ -1210,7 +1214,148 @@
    "objects": [
     {
      "name": "AcademicTermType",
-     "fields": []
+     "fields": [
+      {
+       "name": "id",
+       "required": true,
+       "type": "int"
+      },
+      {
+       "name": "name",
+       "required": true,
+       "type": "text (128)"
+      },
+      {
+       "name": "display_name",
+       "required": false,
+       "type": "text (128)"
+      },
+      {
+       "name": "default_start_month",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "default_start_day",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "default_start_year",
+       "required": true,
+       "type": "enum (start, end)"
+      },
+      {
+       "name": "default_start_weekday",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "default_end_month",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "default_end_day",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "default_end_year",
+       "required": true,
+       "type": "enum (start, end)"
+      },
+      {
+       "name": "default_end_weekday",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "default_can_overlap_dates",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "default_add_drop_days",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "level",
+       "required": true,
+       "type": "enum (single, super, sub)"
+      },
+      {
+       "name": "parent_academic_term_type_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "is_for_transcript",
+       "required": false,
+       "type": "bool"
+      },
+      {
+       "name": "is_for_billing",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "is_for_campus_life",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "is_entrance_term",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "status",
+       "required": false,
+       "type": "enum (active, retired, deleted)"
+      },
+      {
+       "name": "retired_at",
+       "required": false,
+       "type": "datetime"
+      },
+      {
+       "name": "retired_by_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "added_at",
+       "required": false,
+       "type": "datetime"
+      },
+      {
+       "name": "added_by_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "updated_at",
+       "required": false,
+       "type": "datetime"
+      },
+      {
+       "name": "updated_by_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "sandbox",
+       "required": false,
+       "type": "bool"
+      },
+      {
+       "name": "api_version",
+       "required": false,
+       "type": "--"
+      }
+     ]
     }
    ],
    "actions": [
@@ -9965,6 +10110,21 @@
        "type": "text (500)"
       },
       {
+       "name": "donor_spouse",
+       "required": false,
+       "type": "text (500)"
+      },
+      {
+       "name": "donor_salutation",
+       "required": false,
+       "type": "text (500)"
+      },
+      {
+       "name": "donor_addressee",
+       "required": false,
+       "type": "text (500)"
+      },
+      {
        "name": "donor_street",
        "required": false,
        "type": "text (500)"
@@ -10568,27 +10728,6 @@
      "expands": [],
      "permissions": {
       "note": "Only keys that have been granted Populi Account Administrator permissions may call this method.\n\nThis is a heavy call. For performance reasons, only one heavy call may be made at a time.",
-      "roles": []
-     }
-    },
-    {
-     "name": "Run LMS sync",
-     "method": "GET",
-     "path": "/lmssync/run",
-     "description": "Begin a sync operation between Populi and an outside LMS (e.g. Canvas), if you have an integration configured.",
-     "params": [
-      {
-       "name": "direction",
-       "required": false,
-       "type": "enum (from_populi, to_populi, both)",
-       "description": "Default is both"
-      }
-     ],
-     "filters": [],
-     "action_params": [],
-     "expands": [],
-     "permissions": {
-      "note": "Only keys that have been granted Populi Account Administrator permissions may call this method.",
       "roles": []
      }
     },
@@ -11842,7 +11981,7 @@
       {
        "name": "academic_year_id",
        "required": false,
-       "type": "",
+       "type": "int",
        "description": ""
       }
      ],
@@ -11913,6 +12052,16 @@
       },
       {
        "name": "exclusively_apply_data",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "count_unused_courses",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "count_unused_transfer_courses",
        "required": true,
        "type": "bool"
       },
@@ -15036,6 +15185,11 @@
        "type": "text (50)"
       },
       {
+       "name": "ipeds_level",
+       "required": false,
+       "type": "text (3)"
+      },
+      {
        "name": "sandbox",
        "required": false,
        "type": "bool"
@@ -17604,7 +17758,7 @@
       {
        "name": "enrolled_by_type",
        "required": true,
-       "type": "enum (registrar, student, advisor, waiting_list, system)"
+       "type": "enum (registrar, student, advisor, waiting_list, system, course_market)"
       },
       {
        "name": "status_date",
@@ -17819,6 +17973,10 @@
       {
        "name": "enrolled_by",
        "type": "object_id"
+      },
+      {
+       "name": "enrolled_by_type",
+       "type": "enum"
       },
       {
        "name": "enrollment_date",
@@ -25463,6 +25621,11 @@
        "type": "bool"
       },
       {
+       "name": "author_id",
+       "required": true,
+       "type": "int"
+      },
+      {
        "name": "added_at",
        "required": true,
        "type": "datetime"
@@ -25549,6 +25712,12 @@
        "required": false,
        "type": "bool",
        "description": ""
+      },
+      {
+       "name": "author_id",
+       "required": false,
+       "type": "Person id",
+       "description": ""
       }
      ],
      "filters": [],
@@ -25587,6 +25756,12 @@
        "name": "is_flagged",
        "required": false,
        "type": "bool",
+       "description": ""
+      },
+      {
+       "name": "author_id",
+       "required": false,
+       "type": "Person id",
        "description": ""
       }
      ],
@@ -27036,6 +27211,11 @@
        "name": "name",
        "required": true,
        "type": "text (50)"
+      },
+      {
+       "name": "allow_transfer_credits",
+       "required": true,
+       "type": "bool"
       },
       {
        "name": "sandbox",
@@ -28550,6 +28730,11 @@
       },
       {
        "name": "source_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "import_id",
        "required": false,
        "type": "int"
       },
@@ -34803,7 +34988,7 @@
      "name": "export_transcript",
      "method": "GET",
      "path": "/people/(person)/export_transcript",
-     "description": "To generate using the built-in PDF layout, set print_layout_id to PDF. To use a custom layout, provide a print_layout_id for a transcript layout.",
+     "description": "To use the default layout, omit print_layout_id. To use a custom layout, provide a print_layout_id for a transcript layout.",
      "params": [
       {
        "name": "program_id",
@@ -34833,6 +35018,25 @@
        "Academic Auditor",
        "Academic Admin",
        "Registrar"
+      ]
+     }
+    },
+    {
+     "name": "financial_history",
+     "method": "GET",
+     "path": "/people/(person)/financial_history",
+     "description": "",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "One of the following roles is required to call this method:",
+      "roles": [
+       "Financial Aid",
+       "Student Billing",
+       "Financial Auditor",
+       "Financial Admin"
       ]
      }
     },
@@ -39640,6 +39844,11 @@
    "description": "Whenever an advisor is assigned to a student."
   },
   {
+   "event": "advisor_removed_from_student",
+   "title": "Advisor Removed From Student",
+   "description": "Whenever an advisor is removed from a student."
+  },
+  {
    "event": "financial_aid_award_accepted",
    "title": "Aid Award Accepted",
    "description": "Whenever an aid award is accepted by the student."
@@ -39715,9 +39924,19 @@
    "description": "Whenever a campus is removed from a student."
   },
   {
-   "event": "bookstore_order_processed",
+   "event": "campus_store_order_processed",
    "title": "Campus Store Order Processed",
-   "description": "Whenever a new campus store order is made\n\n*Example payload currently unavailable for this event.*"
+   "description": "Whenever a new campus store order is made"
+  },
+  {
+   "event": "campus_store_order_status_updated",
+   "title": "Campus Store Order Status Updated",
+   "description": "Whenever a campus store order status is updated"
+  },
+  {
+   "event": "campus_store_order_tracking_added",
+   "title": "Campus Store Order Tracking Added",
+   "description": "Whenever a tracking number is added to a campus store order"
   },
   {
    "event": "consequence_created",
@@ -39752,7 +39971,7 @@
   {
    "event": "course_offering_catalog_course_updated",
    "title": "Course Offering Catalog Course Updated",
-   "description": "Whenever an course offering catalog course is updated.\n\n*Example payload currently unavailable for this event.*"
+   "description": "Whenever an course offering catalog course is updated."
   },
   {
    "event": "course_offering_updated",
@@ -39803,6 +40022,11 @@
    "event": "form_response_field_note_added",
    "title": "Form Response Field Note Added",
    "description": "Whenever a note that is visible to the respondent is added to a form field."
+  },
+  {
+   "event": "form_response_linked_to_person",
+   "title": "Form Response Linked to Person",
+   "description": "Whenever a form response is linked to a person."
   },
   {
    "event": "form_response_request_resent",
@@ -39892,7 +40116,7 @@
   {
    "event": "isir_imported",
    "title": "ISIR Imported",
-   "description": "Whenever an ISIR is imported.\n\n*Example payload currently unavailable for this event.*"
+   "description": "Whenever an ISIR is imported."
   },
   {
    "event": "lead_created",
@@ -39913,6 +40137,16 @@
    "event": "library_resource_lost",
    "title": "Library Resource Lost",
    "description": "Whenever a library resource is lost"
+  },
+  {
+   "event": "lock_added_to_person",
+   "title": "Lock Added To Person",
+   "description": "Whenever a lock is added to a person."
+  },
+  {
+   "event": "lock_removed_from_person",
+   "title": "Lock Removed From Person",
+   "description": "Whenever a lock is removed from a person."
   },
   {
    "event": "transfer_credit_awaiting_approval",
@@ -40020,6 +40254,21 @@
    "description": "Whenever a student's degree is changed."
   },
   {
+   "event": "meal_plan_student_added",
+   "title": "Student Meal Plan Added",
+   "description": "Whenever a meal plan is added to a student."
+  },
+  {
+   "event": "meal_plan_student_removed",
+   "title": "Student Meal Plan Removed",
+   "description": "Whenever a meal plan is removed from a student."
+  },
+  {
+   "event": "meal_plan_student_updated",
+   "title": "Student Meal Plan Updated",
+   "description": "Whenever a student's meal plan is changed."
+  },
+  {
    "event": "student_program_added",
    "title": "Student Program Added",
    "description": "Whenever a program is added to a student."
@@ -40033,6 +40282,21 @@
    "event": "student_program_updated",
    "title": "Student Program Updated",
    "description": "Whenever a student's program is changed."
+  },
+  {
+   "event": "room_plan_student_added",
+   "title": "Student Room Plan Added",
+   "description": "Whenever a room plan is added to a student."
+  },
+  {
+   "event": "room_plan_student_removed",
+   "title": "Student Room Plan Removed",
+   "description": "Whenever a room plan is removed from a student."
+  },
+  {
+   "event": "room_plan_student_updated",
+   "title": "Student Room Plan Updated",
+   "description": "Whenever a student's room plan is changed."
   },
   {
    "event": "tag_added_to_contact_organization",
