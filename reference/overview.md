@@ -1,6 +1,6 @@
 # Populi API2: overview
 
-> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-23 17:39:26 PST. Source: https://populi.co/api/
+> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-10-28 16:15:03 PST. Source: https://populi.co/api/
 
 ## Introduction
 
@@ -12,7 +12,7 @@ If you are looking for our [old API](https://support.populiweb.com/hc/en-us/arti
 
 If you need help, first check your API logs in Populi and look at the provided examples. The API channel on our Discord server is also a good place to ask for help or see what other developers are doing. For specific questions, please email [support@populi.co](mailto:support@populi.co).
 
-> **Note:** This documentation updated on 2026-10-23 17:39:26 PST
+> **Note:** This documentation updated on 2026-10-28 16:15:03 PST
 
 ## Authentication
 
