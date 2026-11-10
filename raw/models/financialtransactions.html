@@ -1287,7 +1287,7 @@
 <tr>
 <td>type</td>
 <td>Yes</td>
-<td>enum (journal, sales_invoice, sales_credit, customer_payment, customer_repayment, aid_payment, aid_repayment, sales_receipt, library_fine, donation, purchase, inventory_adjustment, gateway_processing_fee, reversal, aid_drawdown, gateway_deposit, donation_refund, gateway_withdrawal)</td>
+<td>enum (journal, sales_invoice, sales_credit, customer_payment, customer_repayment, aid_payment, aid_repayment, sales_receipt, library_fine, donation, purchase, inventory_adjustment, gateway_processing_fee, reversal, aid_drawdown, gateway_deposit, donation_refund, gateway_withdrawal, gateway_payout)</td>
 </tr>
 <tr>
 <td>status</td>
@@ -1327,7 +1327,7 @@
 <tr>
 <td>link_type</td>
 <td>No</td>
-<td>enum (uncollectible_invoice, recollectible_invoice, application, bookstore_order, financial_aid, donation, inventory_batch, transcript_request, transaction, form_response, gateway_deposit, gateway_withdrawal)</td>
+<td>enum (uncollectible_invoice, recollectible_invoice, application, bookstore_order, financial_aid, donation, inventory_batch, transcript_request, transaction, form_response, gateway_deposit, gateway_withdrawal, gateway_payout)</td>
 </tr>
 <tr>
 <td>link_id</td>
@@ -1479,7 +1479,7 @@
             </span><span class="nl">"reposts"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"reposted_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"repostable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-28T16:14:49+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-11-09T16:14:30+00:00"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
             </span><span class="nl">"report_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"student_dummyid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20220xx002"</span><span class="p">,</span><span class="w">
@@ -1791,7 +1791,7 @@
     </span><span class="nl">"reposts"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"reposted_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"repostable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-28T23:14:49+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-11-10T00:14:30+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
@@ -1895,7 +1895,7 @@
     </span><span class="nl">"reposts"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
     </span><span class="nl">"reposted_by_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"repostable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-28T23:15:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"added_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-11-10T00:14:40+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"added_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
     </span><span class="nl">"sandbox"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"api_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-13"</span><span class="w">
@@ -2061,7 +2061,7 @@
     </span><span class="nl">"posted_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-03-11"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"actor_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"actor_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"voided_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-28T23:15:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"voided_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-11-10T00:14:40+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"voided_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
     </span><span class="nl">"link_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"link_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">

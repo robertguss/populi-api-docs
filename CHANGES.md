@@ -7,6 +7,29 @@ descriptions were reworded. Examples are not compared.
 
 <!-- entries -->
 
+## 2026-11-09 16:14:43 PST
+
+Synced 2026-11-10.
+
+### Object fields
+
+- + OnlinePayment.`adyen_balance_account_id` (text (64))
+- + OnlinePayment.`platform_fee_paid_by_payer` (bool, required)
+- + OnlinePayment.`unconfirmed_at` (datetime)
+- ~ Donation.`payment_method` type 'enum (cash, check, card, ach, money_order, gift_in_kind, other, paypal)' → 'enum (cash, check, card, ach, money_order, gift_in_kind, other, paypal, pay_by_bank)'
+- ~ FinancialTransaction.`link_type` type 'enum (uncollectible_invoice, recollectible_invoice, application, bookstore_order, financial_aid, donation, inventory_batch, transcript_request, transaction, form_response, gateway_deposit, gateway_withdrawal)' → 'enum (uncollectible_invoice, recollectible_invoice, application, bookstore_order, financial_aid, donation, inventory_batch, transcript_request, transaction, form_response, gateway_deposit, gateway_withdrawal, gateway_payout)'
+- ~ FinancialTransaction.`type` type 'enum (journal, sales_invoice, sales_credit, customer_payment, customer_repayment, aid_payment, aid_repayment, sales_receipt, library_fine, donation, purchase, inventory_adjustment, gateway_processing_fee, reversal, aid_drawdown, gateway_deposit, donation_refund, gateway_withdrawal)' → 'enum (journal, sales_invoice, sales_credit, customer_payment, customer_repayment, aid_payment, aid_repayment, sales_receipt, library_fine, donation, purchase, inventory_adjustment, gateway_processing_fee, reversal, aid_drawdown, gateway_deposit, donation_refund, gateway_withdrawal, gateway_payout)'
+- ~ OnlinePayment.`status` type 'enum (construction, checkout, payment, completing, complete, error, authorizing, authorized, confirm)' → 'enum (construction, checkout, payment, completing, complete, error, authorizing, authorized, confirm, unconfirmed)'
+- ~ OnlinePayment.`type` type 'enum (card, ach, paypal, charge_to_account)' → 'enum (card, ach, paypal, charge_to_account, pay_by_bank)'
+
+### Parameters
+
+- ~ `POST /donations`: parameter `payment_method` type 'enum (cash, check, card, ach, money_order, gift_in_kind, other, paypal)' → 'enum (cash, check, card, ach, money_order, gift_in_kind, other, paypal, pay_by_bank)'
+
+### Permissions
+
+- ~ `GET /applications`: Admissions Auditor, Admissions Admin, Admissions, Academic Admin, Registrar → Admissions Auditor, Admissions Auditor, Admissions Admin, Admissions, Academic Admin, Registrar
+
 ## 2026-10-28 16:15:03 PST
 
 Synced 2026-10-29.

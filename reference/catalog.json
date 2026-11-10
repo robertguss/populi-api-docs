@@ -1,7 +1,7 @@
 {
  "source": "https://populi.co/api/",
- "docs_updated_on": "2026-10-28 16:15:03 PST",
- "fetched_at": "2026-10-29T17:57:04+00:00",
+ "docs_updated_on": "2026-11-09 16:14:43 PST",
+ "fetched_at": "2026-11-10T17:26:29+00:00",
  "counts": {
   "models": 180,
   "endpoints": 697,
@@ -5921,6 +5921,7 @@
      "permissions": {
       "note": "One of the following roles is required to call this method:",
       "roles": [
+       "Admissions Auditor",
        "Admissions Auditor",
        "Admissions Admin",
        "Admissions",
@@ -16124,7 +16125,7 @@
       {
        "name": "payment_method",
        "required": false,
-       "type": "enum (cash, check, card, ach, money_order, gift_in_kind, other, paypal)"
+       "type": "enum (cash, check, card, ach, money_order, gift_in_kind, other, paypal, pay_by_bank)"
       },
       {
        "name": "payment_reference",
@@ -16413,7 +16414,7 @@
       {
        "name": "payment_method",
        "required": true,
-       "type": "enum (cash, check, card, ach, money_order, gift_in_kind, other, paypal)",
+       "type": "enum (cash, check, card, ach, money_order, gift_in_kind, other, paypal, pay_by_bank)",
        "description": ""
       },
       {
@@ -19053,7 +19054,7 @@
       {
        "name": "type",
        "required": true,
-       "type": "enum (journal, sales_invoice, sales_credit, customer_payment, customer_repayment, aid_payment, aid_repayment, sales_receipt, library_fine, donation, purchase, inventory_adjustment, gateway_processing_fee, reversal, aid_drawdown, gateway_deposit, donation_refund, gateway_withdrawal)"
+       "type": "enum (journal, sales_invoice, sales_credit, customer_payment, customer_repayment, aid_payment, aid_repayment, sales_receipt, library_fine, donation, purchase, inventory_adjustment, gateway_processing_fee, reversal, aid_drawdown, gateway_deposit, donation_refund, gateway_withdrawal, gateway_payout)"
       },
       {
        "name": "status",
@@ -19093,7 +19094,7 @@
       {
        "name": "link_type",
        "required": false,
-       "type": "enum (uncollectible_invoice, recollectible_invoice, application, bookstore_order, financial_aid, donation, inventory_batch, transcript_request, transaction, form_response, gateway_deposit, gateway_withdrawal)"
+       "type": "enum (uncollectible_invoice, recollectible_invoice, application, bookstore_order, financial_aid, donation, inventory_batch, transcript_request, transaction, form_response, gateway_deposit, gateway_withdrawal, gateway_payout)"
       },
       {
        "name": "link_id",
@@ -25858,12 +25859,12 @@
       {
        "name": "status",
        "required": true,
-       "type": "enum (construction, checkout, payment, completing, complete, error, authorizing, authorized, confirm)"
+       "type": "enum (construction, checkout, payment, completing, complete, error, authorizing, authorized, confirm, unconfirmed)"
       },
       {
        "name": "type",
        "required": true,
-       "type": "enum (card, ach, paypal, charge_to_account)"
+       "type": "enum (card, ach, paypal, charge_to_account, pay_by_bank)"
       },
       {
        "name": "link_type",
@@ -26116,6 +26117,16 @@
        "type": "decimal"
       },
       {
+       "name": "platform_fee_paid_by_payer",
+       "required": true,
+       "type": "bool"
+      },
+      {
+       "name": "adyen_balance_account_id",
+       "required": false,
+       "type": "text (64)"
+      },
+      {
        "name": "payment_gateway_transaction_id",
        "required": false,
        "type": "text (128)"
@@ -26209,6 +26220,11 @@
        "name": "cover_processing_fees",
        "required": true,
        "type": "bool"
+      },
+      {
+       "name": "unconfirmed_at",
+       "required": false,
+       "type": "datetime"
       },
       {
        "name": "added_at",
