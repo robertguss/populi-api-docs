@@ -1,6 +1,6 @@
 # Populi API2: every endpoint
 
-> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-11-09 16:14:43 PST. 697 endpoints, sorted by path. Paths are relative to `https://<school>.populiweb.com/api2`; `(name)` is an id in the path.
+> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-11-16 10:02:35 PST. 699 endpoints, sorted by path. Paths are relative to `https://<school>.populiweb.com/api2`; `(name)` is an id in the path.
 
 | Method | Path | Action | Model | Summary |
 |---|---|---|---|---|
@@ -131,6 +131,8 @@
 | GET | `/courseofferings/(courseoffering)/files` | index (courseoffering) | [File](models/files.md) | Retrieves all File objects tied to a specific Courseoffering. |
 | GET | `/courseofferings/(courseoffering)/files/(file)` | show (courseoffering) | [File](models/files.md) | Retrieves a specific File object. |
 | POST | `/courseofferings/(courseoffering)/finalize` | finalize | [CourseOffering](models/courseofferings.md) |  |
+| GET | `/courseofferings/(courseoffering)/folders` | index (courseoffering) | [File Folder](models/filefolders.md) | Retrieves all File Folder objects tied to a specific Courseoffering. |
+| GET | `/courseofferings/(courseoffering)/folders/(filefolder)` | show (courseoffering) | [File Folder](models/filefolders.md) | Retrieves a specific File Folder object. |
 | GET | `/courseofferings/(courseoffering)/lessons` | index | [CourseLesson](models/courselessons.md) | Retrieves all CourseLesson objects tied to a specific Courseoffering. |
 | GET | `/courseofferings/(courseoffering)/lessons/(courselesson)` | show | [CourseLesson](models/courselessons.md) | Retrieves a specific CourseLesson object. |
 | GET | `/courseofferings/(courseoffering)/lessons/(courselesson)/files` | index (courselesson) | [File](models/files.md) | Retrieves all File objects tied to a specific Courseoffering. |

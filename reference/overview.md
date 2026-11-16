@@ -1,6 +1,6 @@
 # Populi API2: overview
 
-> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-11-09 16:14:43 PST. Source: https://populi.co/api/
+> A local copy of Populi's API2 reference (https://populi.co/api/), rebuilt for agents by `populi-docs`. Do not edit by hand; run `populi-docs sync` to refresh. Docs version: 2026-11-16 10:02:35 PST. Source: https://populi.co/api/
 
 ## Introduction
 
@@ -12,7 +12,7 @@ If you are looking for our [old API](https://support.populiweb.com/hc/en-us/arti
 
 If you need help, first check your API logs in Populi and look at the provided examples. The API channel on our Discord server is also a good place to ask for help or see what other developers are doing. For specific questions, please email [support@populi.co](mailto:support@populi.co).
 
-> **Note:** This documentation updated on 2026-11-09 16:14:43 PST
+> **Note:** This documentation updated on 2026-11-16 10:02:35 PST
 
 ## Authentication
 
@@ -91,7 +91,7 @@ All API calls will contain JSON in the body of the HTTP response. This response 
 There are a tiny handful of exceptions to this convention.
 
 - API calls that contain a file upload will contain the file data in the body of the request and any additional parameters must be included as POST variables instead of JSON in the body.
-- API calls that return a file to download (such as a XLS, CSV, or PDF), will contain the file in the response instead of JSON.
+- API calls that return a file to download (such as a XLS, CSV, or PDF), will contain the file in the response instead of JSON, or 302 redirect to the file itself.
 - If you are using a strict software library that does not allow GET calls to have any data in the request body, then you may alternately include parameters as JSON in the URL string. Use a single parameter in the url called `parameters` for this purpose.
 
 > Alternate Example, JSON in a URL parameter

@@ -1,10 +1,10 @@
 {
  "source": "https://populi.co/api/",
- "docs_updated_on": "2026-11-09 16:14:43 PST",
- "fetched_at": "2026-11-10T17:26:29+00:00",
+ "docs_updated_on": "2026-11-16 10:02:35 PST",
+ "fetched_at": "2026-11-16T22:04:32+00:00",
  "counts": {
-  "models": 180,
-  "endpoints": 697,
+  "models": 181,
+  "endpoints": 699,
   "webhook_events": 109
  },
  "models": [
@@ -11894,6 +11894,12 @@
        "required": true,
        "type": "int",
        "description": ""
+      },
+      {
+       "name": "course_offering_id",
+       "required": false,
+       "type": "int",
+       "description": ""
       }
      ],
      "filters": [],
@@ -18933,7 +18939,7 @@
      "name": "index (courseoffering)",
      "method": "GET",
      "path": "/courseofferings/(courseoffering)/files",
-     "description": "Retrieves all File objects tied to a specific Courseoffering.",
+     "description": "Retrieves all File objects tied to a specific Courseoffering. The response can contain both File and FileFolder objects. Folders returned here are the top-level folders; use the folder routes to retrieve the contents of a folder.",
      "params": [],
      "filters": [],
      "action_params": [],
@@ -19034,6 +19040,109 @@
      "permissions": {
       "note": "",
       "roles": []
+     }
+    }
+   ]
+  },
+  {
+   "name": "File Folder",
+   "slug": "filefolders",
+   "url": "https://populi.co/api/models/filefolders.html",
+   "objects": [
+    {
+     "name": "File Folder",
+     "fields": [
+      {
+       "name": "id",
+       "required": true,
+       "type": "int"
+      },
+      {
+       "name": "parent_folder_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "owner_type",
+       "required": true,
+       "type": "enum (user, group, course_offering)"
+      },
+      {
+       "name": "owner_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "name",
+       "required": true,
+       "type": "text (255)"
+      },
+      {
+       "name": "trashed_by_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "trashed_at",
+       "required": false,
+       "type": "datetime"
+      },
+      {
+       "name": "added_at",
+       "required": false,
+       "type": "datetime"
+      },
+      {
+       "name": "added_by_id",
+       "required": false,
+       "type": "int"
+      },
+      {
+       "name": "sandbox",
+       "required": false,
+       "type": "bool"
+      },
+      {
+       "name": "api_version",
+       "required": false,
+       "type": "--"
+      }
+     ]
+    }
+   ],
+   "actions": [
+    {
+     "name": "index (courseoffering)",
+     "method": "GET",
+     "path": "/courseofferings/(courseoffering)/folders",
+     "description": "Retrieves all File Folder objects tied to a specific Courseoffering.",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "One of the following roles is required to call this method:",
+      "roles": [
+       "Registrar",
+       "Academic Admin"
+      ]
+     }
+    },
+    {
+     "name": "show (courseoffering)",
+     "method": "GET",
+     "path": "/courseofferings/(courseoffering)/folders/(filefolder)",
+     "description": "Retrieves a specific File Folder object. The response includes a contents array containing the files and subfolders directly inside the folder.",
+     "params": [],
+     "filters": [],
+     "action_params": [],
+     "expands": [],
+     "permissions": {
+      "note": "One of the following roles is required to call this method:",
+      "roles": [
+       "Registrar",
+       "Academic Admin"
+      ]
      }
     }
    ]

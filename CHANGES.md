@@ -7,6 +7,41 @@ descriptions were reworded. Examples are not compared.
 
 <!-- entries -->
 
+## 2026-11-16 10:02:35 PST
+
+Synced 2026-11-16.
+
+### Models
+
+- + File Folder (`filefolders`)
+
+### Endpoints
+
+- + `GET /courseofferings/(courseoffering)/folders` (File Folder index (courseoffering))
+- + `GET /courseofferings/(courseoffering)/folders/(filefolder)` (File Folder show (courseoffering))
+
+### Object fields
+
+- + File Folder.`added_at` (datetime)
+- + File Folder.`added_by_id` (int)
+- + File Folder.`api_version` (--)
+- + File Folder.`id` (int, required)
+- + File Folder.`name` (text (255), required)
+- + File Folder.`owner_id` (int)
+- + File Folder.`owner_type` (enum (user, group, course_offering), required)
+- + File Folder.`parent_folder_id` (int)
+- + File Folder.`sandbox` (bool)
+- + File Folder.`trashed_at` (datetime)
+- + File Folder.`trashed_by_id` (int)
+
+### Parameters
+
+- + `GET /courseevaluations/(courseevaluation)/answers`: parameter `course_offering_id` (int)
+
+### Descriptions
+
+- ~ `GET /courseofferings/(courseoffering)/files`
+
 ## 2026-11-09 16:14:43 PST
 
 Synced 2026-11-10.

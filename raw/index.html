@@ -742,6 +742,11 @@
               </a>
             </li>
             <li>
+              <a href="models/filefolders.html" class="toc-h1 toc-link" data-title="File Folder">
+                File Folder
+              </a>
+            </li>
+            <li>
               <a href="models/financialtransactions.html" class="toc-h1 toc-link" data-title="FinancialTransaction">
                 FinancialTransaction
               </a>
@@ -1275,7 +1280,7 @@
 <p>If you need help, first check your API logs in Populi and look at the provided examples. The API channel on our Discord server is also a good place to ask for help or see what other developers are doing. For specific questions, please email <a href="mailto:support@populi.co">support@populi.co</a>.</p>
 
 <aside class="notice">
-This documentation updated on 2026-11-09 16:14:43 PST
+This documentation updated on 2026-11-16 10:02:35 PST
 </aside>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
@@ -1385,7 +1390,7 @@ You must replace <code>YOUR_POPULI_API_KEY</code> with your own API Key token in
 
 <ul>
 <li>API calls that contain a file upload will contain the file data in the body of the request and any additional parameters must be included as POST variables instead of JSON in the body. </li>
-<li>API calls that return a file to download (such as a XLS, CSV, or PDF), will contain the file in the response instead of JSON.</li>
+<li>API calls that return a file to download (such as a XLS, CSV, or PDF), will contain the file in the response instead of JSON, or 302 redirect to the file itself.</li>
 <li>If you are using a strict software library that does not allow GET calls to have any data in the request body, then you may alternately include parameters as JSON in the URL string. Use a single parameter in the url called <code>parameters</code> for this purpose.</li>
 </ul>
 
